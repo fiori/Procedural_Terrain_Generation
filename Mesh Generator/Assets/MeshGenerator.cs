@@ -10,6 +10,9 @@ public class MeshGenerator : MonoBehaviour
     private Vector3[] vertices;
     private int[] triangles;
 
+    public int xSize = 20;
+    public int zSize = 20;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,34 +23,41 @@ public class MeshGenerator : MonoBehaviour
         UpdateMesh();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     private void CreateShape()
     {
-        vertices = new Vector3[]
+        vertices = new Vector3[(xSize + 1) * (zSize + 1)];
+
+        for (int i = 0, z = 0; z <= zSize; z++)
         {
-            new Vector3(0,0,0),
-            new Vector3(0,1,0),
-            new Vector3(1,1,0),
-            new Vector3(1,0,0),
+            for (int x = 0; x <= xSize; x++)
+            {
+                float y = Mathf.PerlinNoise(x * .3f, z * .3f) * 5f;
+                vertices[i] = new Vector3(x, y, z);
+                i++;
+            }
+        }
 
-            new Vector3(0,0,0),
-            new Vector3(0,1,0),
-            new Vector3(0,1,1),
-            new Vector3(0,0,1)
-        };
+        triangles = new int[xSize * zSize * 6];
 
-        triangles = new int[]
+        int vert = 0;
+        int tris = 0;
+        for (int z = 0; z < zSize; z++)
         {
-            0,1,2,
-            0,2,3,
+            for (int x = 0; x < xSize; x++)
+            {
+                triangles[tris + 0] = vert;
+                triangles[tris + 1] = vert + xSize + 1;
+                triangles[tris + 2] = vert + 1;
+                triangles[tris + 3] = vert + 1;
+                triangles[tris + 4] = vert + xSize + 1;
+                triangles[tris + 5] = vert + xSize + 2;
 
-            6,5,4,
-            7,6,4
-        };
+                vert++;
+                tris += 6;
+            }
+
+            vert++;
+        }
     }
 
     private void UpdateMesh()
