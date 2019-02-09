@@ -45,6 +45,7 @@ public class MapGenerator : MonoBehaviour{
         for (int y = 0; y < MapHeight; y++) {
             for (int x = 0; x < MapWidht; x++) {
                 float currentHeight = noiseMap[x, y];
+
                 for (int i = 0; i < Regions.Length; i++) {
                     if (currentHeight <= Regions[i].Height) {
                         colourMap[y * MapWidht + x] = Regions[i].Color;
@@ -59,8 +60,14 @@ public class MapGenerator : MonoBehaviour{
             display.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
         else if (drawMode == DrawMode.ColorMap)
             display.DrawTexture(TextureGenerator.TextureFromColourMap(colourMap, MapWidht, MapHeight));
+
+
     }
 
+    //void Update() {
+    //    GenerateMap();
+    //    Offset.x += 0.001f;
+    //}
 
     //This function is called when the script is loaded or a value is changed in the inspector (Called in the editor only).
     //Use this function to validate the data of your MonoBehaviours. This can be used to ensure that when you modify data in an editor that the data stays within a certain range.
