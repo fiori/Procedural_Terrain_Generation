@@ -21,7 +21,8 @@ public static class Noise
                 float sampleX = x / scale;
                 float sampleY = y / scale;
 
-                float perlinValue = PerlinNoise.Perlin(sampleX, sampleY);
+                float perlinValue = PerlinNoise.Perlin(sampleX, 1, sampleY);
+                float perlinValue2 = Mathf.PerlinNoise(sampleX, sampleY);
                 noiseMap[x, y] = perlinValue;
             }
         }

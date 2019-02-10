@@ -54,24 +54,42 @@ public static class PerlinNoise
         }
     }
 
-    public static float Perlin(float x, float y)
+    public static float Perlin(float x, float y, float z)
     {
-        int xi = (int)x & 255;
-        int yi = (int)y & 255;
-        x -= (int)x;
-        y -= (int)y;
+        int xi = (int) x & 255;
+        int yi = (int) y & 255;
+        int zi = (int) z & 255;
+        x -= (int) x;
+        y -= (int) y;
+        z -= (int) z;
 
         float u = fade(x);
         float v = fade(y);
+        float w = fade(z);
 
-        //The 4 cube corners
-        int AA = p[p[xi] + yi];
-        int AB = p[p[xi] + yi + 1];
-        int BB = p[p[xi + 1] + yi + 1];
-        int BA = p[p[xi + 1] + yi];
+        //Left Corner
+        int A = p[xi] + yi;
+        //Right Corner
+        int B = p[xi + 1] + yi;
+        
+        //The 8 cube corners
+        int AA = p[A] + zi;
+        int AB = p[A+1] + zi;
+        int BB = p[B+1] + zi;
+        int BA = p[B] + zi;
 
 
-        return lerp(lerp(grad(p[AA], x, y), grad(p[BB], x - 1, y - 1), u),lerp(grad(p[AB],x,y-1),grad(p[BA],x-1,y),u),v);
+        float x1, x2, y1, y2;
+        x1 = lerp(grad(p[AA], x, y, z), grad(p[BA], x - 1, y, z), u);
+        x2 = lerp(grad(p[AB], x, y - 1, z), grad(p[BB], x - 1, y - 1, z), u);
+        y1 = lerp(x1, x2, v);
+
+        x1 = lerp(grad(p[AA+1], x, y, z-1), grad(p[BA+1], x - 1, y, z-1), u);
+        x2 = lerp(grad(p[AB+1], x, y - 1, z-1), grad(p[BB+1], x - 1, y - 1, z-1), u);
+        y2 = lerp(x1, x2, v);
+
+
+        return (lerp(y1, y2, w) + 1) /2;
 
         //int aa, ab, ba, bb;
         //aaa = p[p[p[xi] + yi] + zi];
@@ -128,40 +146,9 @@ public static class PerlinNoise
 
     }
 
-    ////Easy and alternative way to write the gradient function
-    //// Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
-    //public static float grad(int hash, float x, float y, float z)
-    //{
-    //    switch (hash & 0xF)
-    //    {
-    //        case 0x0: return x + y;
-    //        case 0x1: return -x + y;
-    //        case 0x2: return x - y;
-    //        case 0x3: return -x - y;
-    //        case 0x4: return x + z;
-    //        case 0x5: return -x + z;
-    //        case 0x6: return x - z;
-    //        case 0x7: return -x - z;
-    //        case 0x8: return y + z;
-    //        case 0x9: return -y + z;
-    //        case 0xA: return y - z;
-    //        case 0xB: return -y - z;
-    //        case 0xC: return y + x;
-    //        case 0xD: return -y + z;
-    //        case 0xE: return y - x;
-    //        case 0xF: return -y - z;
-    //        default: return 0; // never happens    
-    //    }
-
-    //    //Picks a random vector from the following 12 vectors:
-    //    //(1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0),
-    //    //(1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1),
-    //    //(0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)
-    //}
-
     //Easy and alternative way to write the gradient function
     // Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
-    public static float grad(int hash, float x, float y)
+    public static float grad(int hash, float x, float y, float z)
     {
         switch (hash & 0xF)
         {
@@ -169,14 +156,45 @@ public static class PerlinNoise
             case 0x1: return -x + y;
             case 0x2: return x - y;
             case 0x3: return -x - y;
-            case 0x4: return y + x;
-            case 0x5: return y - x;
+            case 0x4: return x + z;
+            case 0x5: return -x + z;
+            case 0x6: return x - z;
+            case 0x7: return -x - z;
+            case 0x8: return y + z;
+            case 0x9: return -y + z;
+            case 0xA: return y - z;
+            case 0xB: return -y - z;
+            case 0xC: return y + x;
+            case 0xD: return -y + z;
+            case 0xE: return y - x;
+            case 0xF: return -y - z;
             default: return 0; // never happens    
         }
 
-        //Picks a random vector from the following 4 vectors:
-        //(0,0),(0,1),(1,1)(1,0)
+        //Picks a random vector from the following 12 vectors:
+        //(1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0),
+        //(1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1),
+        //(0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)
     }
+
+    ////Easy and alternative way to write the gradient function
+    //// Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
+    //public static float grad(int hash, float x, float y)
+    //{
+    //    switch (hash & 0xF)
+    //    {
+    //        case 0x0: return x + y;
+    //        case 0x1: return -x + y;
+    //        case 0x2: return x - y;
+    //        case 0x3: return -x - y;
+    //        case 0x4: return y + x;
+    //        case 0x5: return y - x;
+    //        default: return 0; // never happens    
+    //    }
+
+    //    //Picks a random vector from the following 4 vectors:
+    //    //(0,0),(0,1),(1,1)(1,0)
+    //}
 
     //public static int inc(int num)
     //{
