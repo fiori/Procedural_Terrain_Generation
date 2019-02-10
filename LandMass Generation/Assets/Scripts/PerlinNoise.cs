@@ -85,14 +85,19 @@ public static class PerlinNoise
         ba = p[p[xi + 1] + yi];
         bb = p[p[xi + 1] + yi + 1];
         
-        float x1, x2, y1;
+        float x1, x2, y1, y2;
 
         x1 = lerp(grad(aa, xf, yf), grad(ba, xf - 1, yf), u);
         x2 = lerp(grad(ab, xf, yf - 1), grad(bb, xf - 1, yf - 1), u);
 
         y1 = lerp(x1, x2, v);
 
-        return y1;
+        x1 = lerp(grad(aa, xf, yf), grad(bb, xf - 1, yf - 1), u);
+        x2 = lerp(grad(ab, xf, yf - 1), grad(ba, xf - 1, yf), u);
+
+        y2 = lerp(x1, x2, v);
+
+        return ((lerp(y1,y2,v) + 1) / 2);
 
     }
 
@@ -163,10 +168,8 @@ public static class PerlinNoise
             default: return 0; // never happens    
         }
 
-        //Picks a random vector from the following 12 vectors:
-        //(1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0),
-        //(1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1),
-        //(0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)
+        //Picks a random vector from the following 4 vectors:
+        //(0,0),(0,1),(1,1)(1,0)
     }
 
     //public static int inc(int num)
