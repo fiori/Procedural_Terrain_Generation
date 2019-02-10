@@ -58,13 +58,22 @@ public static class PerlinNoise
     {
         int xi = (int)x & 255;
         int yi = (int)y & 255;
-        float xf = x - (int)x;
-        float yf = y - (int)y;
+        x -= (int)x;
+        y -= (int)y;
 
-        float u = fade(xf);
-        float v = fade(yf);
+        float u = fade(x);
+        float v = fade(y);
 
-        int aa, ab, ba, bb;
+        //The 4 cube corners
+        int AA = p[p[xi] + yi];
+        int AB = p[p[xi] + yi + 1];
+        int BB = p[p[xi + 1] + yi + 1];
+        int BA = p[p[xi + 1] + yi];
+
+
+        return lerp(lerp(grad(p[AA], x, y), grad(p[BB], x - 1, y - 1), u),lerp(grad(p[AB],x,y-1),grad(p[BA],x-1,y),u),v);
+
+        //int aa, ab, ba, bb;
         //aaa = p[p[p[xi] + yi] + zi];
         //aba = p[p[p[xi] + inc(yi)] + zi];
         //aab = p[p[p[xi] + yi] + inc(zi)];
@@ -75,30 +84,27 @@ public static class PerlinNoise
         //bbb = p[p[p[inc(xi)] + inc(yi)] + inc(zi)];
         //aa = p[p[xi] + yi];
         //ab = p[p[xi] + inc(yi)];
-        
+
         //ba = p[p[inc(xi)] + yi];
         //bb = p[p[inc(xi)] + inc(yi)];
 
-        aa = p[p[xi] + yi];
-        ab = p[p[xi] + yi + 1];
-        
-        ba = p[p[xi + 1] + yi];
-        bb = p[p[xi + 1] + yi + 1];
-        
-        float x1, x2, y1, y2;
+        //aa = p[p[xi] + yi];
+        //ab = p[p[xi] + yi + 1];
 
-        x1 = lerp(grad(aa, xf, yf), grad(ba, xf - 1, yf), u);
-        x2 = lerp(grad(ab, xf, yf - 1), grad(bb, xf - 1, yf - 1), u);
+        //ba = p[p[xi + 1] + yi];
+        //bb = p[p[xi + 1] + yi + 1];
 
-        y1 = lerp(x1, x2, v);
+        //float x1, x2, y1, y2;
 
-        x1 = lerp(grad(aa, xf, yf), grad(bb, xf - 1, yf - 1), u);
-        x2 = lerp(grad(ab, xf, yf - 1), grad(ba, xf - 1, yf), u);
+        //x1 = lerp(grad(aa, xf, yf), grad(ba, xf - 1, yf), u);
+        //x2 = lerp(grad(ab, xf, yf - 1), grad(bb, xf - 1, yf - 1), u);
 
-        y2 = lerp(x1, x2, v);
+        //y1 = lerp(x1, x2, v);
 
-        return ((lerp(y1,y2,v) + 1) / 2);
+        //x1 = lerp(grad(aa, xf, yf), grad(bb, xf - 1, yf - 1), u);
+        //x2 = lerp(grad(ab, xf, yf - 1), grad(ba, xf - 1, yf), u);
 
+        //y2 = lerp(x1, x2, v);
     }
 
     //The Ken Perlin's original grade() function using complicated and confusing bit-flipping code to calculate the dot product of a randomly selected
