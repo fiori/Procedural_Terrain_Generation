@@ -80,15 +80,16 @@ public static class PerlinNoise
 
 
         float x1, x2, y1, y2;
+        //Check the front 4 corners of the cube
         x1 = lerp(grad(p[AA], x, y, z), grad(p[BA], x - 1, y, z), u);
         x2 = lerp(grad(p[AB], x, y - 1, z), grad(p[BB], x - 1, y - 1, z), u);
         y1 = lerp(x1, x2, v);
-
+        //Check the back 4 corners of the cube, that's why is z-1.
         x1 = lerp(grad(p[AA+1], x, y, z-1), grad(p[BA+1], x - 1, y, z-1), u);
         x2 = lerp(grad(p[AB+1], x, y - 1, z-1), grad(p[BB+1], x - 1, y - 1, z-1), u);
         y2 = lerp(x1, x2, v);
 
-
+        //+1/2 is added so the noise is never negative.
         return (lerp(y1, y2, w) + 1) /2;
 
         //int aa, ab, ba, bb;

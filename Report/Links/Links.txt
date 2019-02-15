@@ -1,0 +1,51 @@
+Bitwise Operators in C (Part 2)
+https://www.youtube.com/watch?v=8aFik6lPPaA
+
+Programming Perlin-like Noise (C++)
+https://www.youtube.com/watch?v=6-0UaeJBumA
+
+Realtime Procedural Terrain Generation
+https://pdfs.semanticscholar.org/5961/c577478f21707dad53905362e0ec4e6ec644.pdf
+
+Terrain Generation Using Procedural Models Based on Hydrology
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.677.7824&rep=rep1&type=pdf
+
+A Survey of Procedural Methods for Terrain Modelling∗
+http://www.cg.its.tudelft.nl/Publications-new/2009/SDGTB09a/SDGTB09a.pdf
+
+Perlin Noise: Part 2
+http://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds%20/perlin-noise-part-2?url=procedural-generation-virtual-worlds%20/perlin-noise-part-2
+
+Noise and Turbulence
+https://mrl.nyu.edu/~perlin/doc/oscar.html#noise
+
+Improving Noise 
+https://mrl.nyu.edu/~perlin/paper445.pdf
+
+Understanding Perlin Noise
+http://flafla2.github.io/2014/08/09/perlinnoise.html
+
+The Perlin noise math FAQ
+https://mzucker.github.io/html/perlin-noise-math-faq.html
+
+Improved Noise reference implementation
+https://mrl.nyu.edu/~perlin/noise/
+
+Calculate PerlinNoise faster with an optimization to grad()
+http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
+
+TERRAIN SYNTHESIS BY-EXAMPLE
+https://pdfs.semanticscholar.org/4c1d/d6f8a5a4d2d443b4ca5bcae38ed0a250bcab.pdf
+
+TSCH Algorithm - Terrain Synthesis from Crude
+Heightmaps
+http://oaji.net/articles/2017/476-1542488299.pdf
+
+Procedural Content Generation Wiki
+http://pcg.wikidot.com
+
+Terrain synthesis using noise
+https://tampub.uta.fi/bitstream/handle/10024/101043/GRADU-1494236249.pdf?sequence=1
+
+Terrain, Part 1
+http://www.shamusyoung.com/twentysidedtale/?p=141
