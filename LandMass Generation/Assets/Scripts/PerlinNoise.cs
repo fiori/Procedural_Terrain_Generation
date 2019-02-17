@@ -5,24 +5,27 @@ using UnityEngine;
 public static class PerlinNoise
 {
 
-    //public static float OctavePerlin(float x, float y, float z, int octaves, float persistance)
-    //{
-    //    float total = 0;
-    //    float frequency = 1;
-    //    float amplitude = 1;
-    //    float maxValue = 0;
-    //    for (int i = 0; i < octaves; i++)
-    //    {
-    //        total += Perlin(x * frequency, y * frequency, z * frequency) * amplitude;
+    public static float OctavePerlin(float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)
+    {
+        float total = 0;
+        float frequency = 1;
+        float amplitude = 1;
+        float maxValue = 0;
+        for (int i = 0; i < octaves; i++)
+        {
+            float valueX = x / scale * frequency;
+            float valueY = y / scale * frequency;
+            float valueZ = z / scale * frequency;
+            total += Perlin(valueX, valueY, valueZ) * amplitude;
 
-    //        maxValue += amplitude;
+            maxValue += amplitude;
 
-    //        amplitude *= persistance;
-    //        frequency *= 2;
-    //    }
+            amplitude *= persistance;
+            frequency *= lacunarity;
+        }
 
-    //    return total / maxValue;
-    //}
+        return total / maxValue;
+    }
 
 
     // Hash lookup table as defined by Ken Perlin.  This is a randomly
@@ -56,12 +59,16 @@ public static class PerlinNoise
 
     public static float Perlin(float x, float y, float z)
     {
-        int xi = (int) x & 255;
-        int yi = (int) y & 255;
-        int zi = (int) z & 255;
-        x -= (int) x;
-        y -= (int) y;
-        z -= (int) z;
+        //Start using Mathf.Floor() 
+        //Mathf.Floor return the smallest integer number from the variable. For example if X = 10.7 Mathf.Floor(x) = 10
+        //This resolved the problem, before the output was -30 sometimes and +24. With this function the problem was solved.
+        //Source https://docs.unity3d.com/ScriptReference/Mathf.Floor.html
+        int xi = (int)Mathf.Floor(x) & 255;
+        int yi = (int)Mathf.Floor(y) & 255;
+        int zi = (int)Mathf.Floor(z) & 255;
+        x -= (int)Mathf.Floor(x);
+        y -= (int)Mathf.Floor(y);
+        z -= (int)Mathf.Floor(z);
 
         float u = fade(x);
         float v = fade(y);
@@ -129,23 +136,23 @@ public static class PerlinNoise
     //The Ken Perlin's original grade() function using complicated and confusing bit-flipping code to calculate the dot product of a randomly selected
     //gradient vector and the 8 location vectors.
     //Source:  https://mrl.nyu.edu/~perlin/noise/
-    public static float gradientKenPerlinOriginal(int hash, float x, float y, float z)
-    {
-        int h = hash & 15; // Take the hased value and take the first 4 bits of it ( 15 == 0b1111)
-        float u = h < 8 /* 0b1000 */ ? x : y; // If the most significant bit (MSB) of the hash is 0 then set u = x. Otherwise y.
+    //public static float gradientKenPerlinOriginal(int hash, float x, float y, float z)
+    //{
+    //    int h = hash & 15; // Take the hased value and take the first 4 bits of it ( 15 == 0b1111)
+    //    float u = h < 8 /* 0b1000 */ ? x : y; // If the most significant bit (MSB) of the hash is 0 then set u = x. Otherwise y.
 
-        float v;
+    //    float v;
 
-        if (h < 4 /* 0b0100 */) //If the first and second significant bits are 1 set v = y;
-            v = y;
-        else if (h == 12 /* 0b1100 */ || h == 14 /* 0b1110*/) //If the first and second significant bits are 1 set v = x
-            v = x;
-        else         //If the first and second significant btis are not equal (0/1, 1/0) set v = z
-            v = z;
+    //    if (h < 4 /* 0b0100 */) //If the first and second significant bits are 1 set v = y;
+    //        v = y;
+    //    else if (h == 12 /* 0b1100 */ || h == 14 /* 0b1110*/) //If the first and second significant bits are 1 set v = x
+    //        v = x;
+    //    else         //If the first and second significant btis are not equal (0/1, 1/0) set v = z
+    //        v = z;
 
-        return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v); //Use the last 2 bits to decide if u and v are positive or negative. Then return their addition
+    //    return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v); //Use the last 2 bits to decide if u and v are positive or negative. Then return their addition
 
-    }
+    //}
 
     //Easy and alternative way to write the gradient function
     // Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
@@ -206,8 +213,8 @@ public static class PerlinNoise
     //Linear Interpolation
     public static float lerp(float firstDouble, float secondDouble, float by)
     {
-        //return firstDouble + by * (secondDouble - firstDouble);
-        return firstDouble + (secondDouble - firstDouble) * by;
+        return firstDouble + by * (secondDouble - firstDouble);
+        //return firstDouble + (secondDouble - firstDouble) * by;
     }
 
     public static float fade(float t)
