@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Week1" company="" webLink="http://" view-date="2019-02-06" view-index="0" gantt-divider-location="547" resource-divider-location="300" version="2.8.10" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Week1" company="" webLink="http://" view-date="2019-02-11" view-index="0" gantt-divider-location="729" resource-divider-location="300" version="2.8.10" locale="en_GB">
     <description/>
-    <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="Name" width="264" order="0"/>
-        <field id="tpd4" name="Begin date" width="140" order="1"/>
-        <field id="tpd5" name="End date" width="139" order="2"/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Name" width="548" order="0"/>
+        <field id="tpd4" name="Begin date" width="96" order="1"/>
+        <field id="tpd5" name="End date" width="81" order="2"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="210" order="0"/>
@@ -33,20 +33,70 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Work on procedural Map Generation" color="#8cb6ce" meeting="false" start="2019-02-14" duration="5" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
-            <task id="4" name="Create a Class Diagram" color="#8cb6ce" meeting="false" start="2019-02-14" duration="1" complete="0" thirdDate="2019-02-08" thirdDate-constraint="0" expand="true"/>
-            <task id="7" name="Create a flow Diagram" color="#8cb6ce" meeting="false" start="2019-02-14" duration="1" complete="0" thirdDate="2019-02-08" thirdDate-constraint="0" expand="true"/>
-            <task id="9" name="Go through the Perlin Noise function done last week, and check for improvement" color="#8cb6ce" meeting="false" start="2019-02-15" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-            <task id="12" name="Implement a Colour Map using the noise map" color="#8cb6ce" meeting="false" start="2019-02-16" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-            <task id="16" name="Create a colour Lerp Function" color="#8cb6ce" meeting="false" start="2019-02-17" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-        </task>
-        <task id="18" name="Research" color="#8cb6ce" meeting="false" start="2019-02-19" duration="5" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true">
-            <task id="22" name="Conduct research about the different techniques to improve Procedural Terrain Generation" color="#8cb6ce" meeting="false" start="2019-02-19" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-            <task id="25" name="Conduct research on the Diamond-square algorithm" color="#8cb6ce" meeting="false" start="2019-02-19" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-            <task id="27" name="Create design documentation based on the research" color="#8cb6ce" meeting="false" start="2019-02-22" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true">
-                <task id="30" name="Create a class diagram" color="#8cb6ce" meeting="false" start="2019-02-22" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
-                <task id="33" name="Create a flow diagram" color="#8cb6ce" meeting="false" start="2019-02-22" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="74" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+            <task id="50" name="Sprint 1 - Initial Setup" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                <depend id="111" type="2" difference="0" hardness="Strong"/>
+                <task id="82" name="Download all the chosen Software" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                    <depend id="83" type="3" difference="0" hardness="Strong"/>
+                </task>
+                <task id="83" name="Create a Git repository for the fmp" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                    <depend id="84" type="3" difference="0" hardness="Strong"/>
+                </task>
+                <task id="84" name="Create the Unity Project" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                    <depend id="85" type="3" difference="0" hardness="Strong"/>
+                </task>
+                <task id="85" name="Push the project to github" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
             </task>
+            <task id="111" name="Sprint 2 - Algorithm Researching" color="#8cb6ce" meeting="false" start="2019-02-14" duration="7" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true">
+                <depend id="112" type="2" difference="0" hardness="Strong"/>
+                <task id="133" name="Research Terrain Synthesis Algorithms" meeting="false" start="2019-02-14" duration="2" complete="0" expand="true">
+                    <depend id="138" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="138" name="Perlin Noise" color="#8cb6ce" meeting="false" start="2019-02-16" duration="1" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                    <depend id="139" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="139" name="Diamond-Square" color="#8cb6ce" meeting="false" start="2019-02-17" duration="1" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                    <depend id="140" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="140" name="Simplex Noise" color="#8cb6ce" meeting="false" start="2019-02-18" duration="1" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                    <depend id="142" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="142" name="Thermal Noise" color="#8cb6ce" meeting="false" start="2019-02-19" duration="1" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                    <depend id="144" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="144" name="Hydraulic Erosion" color="#8cb6ce" meeting="false" start="2019-02-20" duration="1" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="112" name="Sprint 3 - Finishing the Perlin Noise Function and Research in Terrain Synthesis techniques" color="#000000" meeting="false" start="2019-02-21" duration="6" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                <depend id="184" type="2" difference="0" hardness="Strong"/>
+                <task id="113" name="Work on procedural Map Generation" color="#8cb6ce" meeting="false" start="2019-02-21" duration="3" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+                    <depend id="119" type="2" difference="0" hardness="Strong"/>
+                    <task id="114" name="Go through the Perlin Noise function done last week, and check for improvement" color="#8cb6ce" meeting="false" start="2019-02-21" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                    <task id="115" name="Create a Class Diagram" color="#8cb6ce" meeting="false" start="2019-02-21" duration="1" complete="0" thirdDate="2019-02-08" thirdDate-constraint="0" expand="true"/>
+                    <task id="116" name="Create a flow Diagram" color="#8cb6ce" meeting="false" start="2019-02-21" duration="1" complete="0" thirdDate="2019-02-08" thirdDate-constraint="0" expand="true"/>
+                    <task id="117" name="Implement a Colour Map using the noise map" color="#8cb6ce" meeting="false" start="2019-02-21" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                    <task id="118" name="Create a colour Lerp Function" color="#8cb6ce" meeting="false" start="2019-02-21" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                </task>
+                <task id="119" name="Research" color="#8cb6ce" meeting="false" start="2019-02-24" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true">
+                    <task id="120" name="Conduct research about the different techniques to improve Procedural Terrain Generation" color="#8cb6ce" meeting="false" start="2019-02-24" duration="3" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                    <task id="122" name="Create design documentation based on the research" color="#8cb6ce" meeting="false" start="2019-02-24" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true">
+                        <task id="123" name="Create a class diagram" color="#8cb6ce" meeting="false" start="2019-02-24" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                        <task id="124" name="Create a flow diagram" color="#8cb6ce" meeting="false" start="2019-02-24" duration="2" complete="0" thirdDate="2019-02-06" thirdDate-constraint="0" expand="true"/>
+                    </task>
+                </task>
+            </task>
+            <task id="184" name="Sprint 4 - Implementing the MeshGenerator class to display the heightmap" color="#8cb6ce" meeting="false" start="2019-02-27" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                <depend id="185" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="185" name="Sprint 5 - Graphic interface to change the terrain generation on the go" color="#8cb6ce" meeting="false" start="2019-03-09" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                <depend id="195" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="195" name="Sprint 6 - Implement Thermal Noise algorithm for terrain erosion" color="#8cb6ce" meeting="false" start="2019-03-19" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                <depend id="197" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-03-29" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                <depend id="208" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-04-08" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources/>
