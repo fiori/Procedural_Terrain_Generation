@@ -47,7 +47,6 @@ public class MeshGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         StartCoroutine(CreateShapeCouroutine());
     }
 
@@ -85,6 +84,7 @@ public class MeshGeneration : MonoBehaviour
             for (int x = 0; x <= XmapSize; x++)
             {
                 vertices[verticesIndex] = new Vector3(x, noiseMap[x,z] * terrainHeight, z);
+                uvs[verticesIndex] = new Vector2(x / (float)XmapSize, z / (float)ZmapSize);
                 verticesIndex++;
             }
         }
