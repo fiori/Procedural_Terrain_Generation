@@ -29,7 +29,10 @@ public static class MapGeneration
                 float noiseHeight = 0;
                 for (int o = 0; o < octaves; o++)
                 {
-                    float perlinValue = PerlinNoise.Perlin(x / noiseScale * frequency, y / noiseScale * frequency, 0);
+                    float valueX = x / noiseScale * frequency;
+                    float valueY = y / noiseScale * frequency;
+
+                    float perlinValue = PerlinNoise.Perlin(valueX, valueY, 0);
                     noiseHeight += perlinValue * amplitude;
 
                     amplitude *= persistance;

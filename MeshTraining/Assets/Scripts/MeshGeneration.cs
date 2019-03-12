@@ -25,7 +25,7 @@ public class MeshGeneration : MonoBehaviour
     //Controls increase in frequency of octaves
     [Range(0, 5)] public float lacunarity = 0.2f;
 
-    [Range(0, 20)] public float persistance = 0.2f;
+    [Range(0, 1)] public float persistance = 0.2f;
 
     [Range(1,10)] public int octaves = 2;
 
@@ -33,7 +33,9 @@ public class MeshGeneration : MonoBehaviour
     public bool AutoUpdate = false;
 
     public float perlinNoise = 0f;
+    public AnimationCurve heightCurve;
     private float[,] noiseMap;
+
 
     [SerializeField] private int triangleIndex = 0;
 
@@ -121,7 +123,7 @@ public class MeshGeneration : MonoBehaviour
         {
             for (int x = 0; x <= XmapSize; x++)
             {
-                vertices[verticesIndex] = new Vector3(x, noiseMap[x, z] * terrainHeight, z);
+                vertices[verticesIndex] = new Vector3(x, heightCurve.Evaluate(noiseMap[x, z]) * terrainHeight, z);
                 uvs[verticesIndex] = new Vector2(x/(float)XmapSize, z/(float)ZmapSize);
                 verticesIndex++;
             }
@@ -198,14 +200,14 @@ public class MeshGeneration : MonoBehaviour
     }
 
 
-    void OnDrawGizmos()
-    {
-        if (vertices == null)
-            return;
+    //void OnDrawGizmos()
+    //{
+    //    if (vertices == null)
+    //        return;
 
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            Gizmos.DrawSphere(vertices[i], .1f);
-        }
-    }
+    //    for (int i = 0; i < vertices.Length; i++)
+    //    {
+    //        Gizmos.DrawSphere(vertices[i], .1f);
+    //    }
+    //}
 }
