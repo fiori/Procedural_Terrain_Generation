@@ -5,7 +5,7 @@ using UnityEngine;
 public static class MeshGenerator
 {
 
-    public static MeshData GenerateTerrainmesh(float[,] heightMap, float heightMultiplier, AnimationCurve heightCruve)
+    public static MeshData GenerateTerrainmesh(float[,] heightMap, float heightMultiplier, AnimationCurve heightCruve, int lod)
     {
         int width = heightMap.GetLength(0);
         int height = heightMap.GetLength(1);
@@ -13,20 +13,24 @@ public static class MeshGenerator
         //Z value needs to be positive
         float topLeftZ = (height - 1) / 2f;
 
-        MeshData meshData = new MeshData(width,height);
+        int meshsimplificationIncrement = (lod == 0) ? 1 : lod * 2;
+
+        int verticesperline = (width - 1) / meshsimplificationIncrement + 1; 
+
+        MeshData meshData = new MeshData(verticesperline,verticesperline);
         int vertexIndex = 0;
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < height; y+=meshsimplificationIncrement)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < width; x+=meshsimplificationIncrement)
             {
                 meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightCruve.Evaluate(heightMap[x, y]) * heightMultiplier, topLeftZ - y);
                 meshData.uvs[vertexIndex] = new Vector2(x / (float)width, y / (float)height);
 
                 if (x < width - 1 && y < height - 1)
                 {
-                    meshData.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + width);
-                    meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex + 1);
+                    meshData.AddTriangle(vertexIndex, vertexIndex + verticesperline + 1, vertexIndex + verticesperline);
+                    meshData.AddTriangle(vertexIndex + verticesperline + 1, vertexIndex, vertexIndex + 1);
                 }
                 vertexIndex++;
             }

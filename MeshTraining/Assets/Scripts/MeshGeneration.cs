@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct TerrainType
@@ -41,6 +42,9 @@ public class MeshGeneration : MonoBehaviour
 
     private int vertIndex = 0;
 
+    //Sliders
+    public Slider[] sliders;
+
     void Awake()
     {
         SetMeshData();
@@ -50,7 +54,14 @@ public class MeshGeneration : MonoBehaviour
     void Start()
     {
         StartCoroutine(CreateShapeCouroutine());
+        sliders[0].onValueChanged.AddListener(delegate { lacunarity = sliders[0].value;});
+        sliders[1].onValueChanged.AddListener(delegate { persistance = sliders[1].value;});
+        sliders[2].onValueChanged.AddListener(delegate { octaves = (int)sliders[2].value;});
+        sliders[3].onValueChanged.AddListener(delegate { terrainHeight = sliders[3].value;});
+        
     }
+
+   
 
     void Update()
     {
