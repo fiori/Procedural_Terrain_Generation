@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ public class MeshGeneration : MonoBehaviour
     public int XmapSize = 10;
     public int ZmapSize = 10;
 
-    [Range(0,2)]
+    [Range(0,4)]
     public int LevelOfDetail = 0;
 
     public float noiseScale = 0.2f;
@@ -140,15 +141,21 @@ public class MeshGeneration : MonoBehaviour
                 lod = 1;
                 break;
             case 1:
-                lod = 2;
+                lod = 3;
                 break;
             case 2:
                 lod = 5;
                 break;
-                
+            case 3:
+                lod = 15;
+                break;
+            case 4:
+                lod = 17;
+                break;
         }
 
-        int verticesperline = (XmapSize / lod);
+
+    int verticesperline = (XmapSize / lod);
         SetMeshData(verticesperline);
         int verticesIndex = 0;
 
@@ -243,14 +250,14 @@ public class MeshGeneration : MonoBehaviour
     }
 
 
-    void OnDrawGizmos()
-    {
-        if (vertices == null)
-            return;
+    //void OnDrawGizmos()
+    //{
+    //    if (vertices == null)
+    //        return;
 
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            Gizmos.DrawSphere(vertices[i], .1f);
-        }
-    }
+    //    for (int i = 0; i < vertices.Length; i++)
+    //    {
+    //        Gizmos.DrawSphere(vertices[i], .1f);
+    //    }
+    //}
 }
