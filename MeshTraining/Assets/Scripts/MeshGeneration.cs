@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -22,6 +23,10 @@ public class MeshGeneration : MonoBehaviour
 
     public int XmapSize = 10;
     public int ZmapSize = 10;
+
+    [Range(0,2)]
+    public int LevelOfDetail = 0;
+
     public float noiseScale = 0.2f;
     //Controls increase in frequency of octaves
     [Range(0, 5)] public float lacunarity = 0.2f;
@@ -128,11 +133,28 @@ public class MeshGeneration : MonoBehaviour
     {
         //triangles = new int[(XmapSize - 1) * (ZmapSize - 1) * 6];
 
+        int lod = 0;
+        switch (LevelOfDetail)
+        {
+            case 0:
+                lod = 1;
+                break;
+            case 1:
+                lod = 2;
+                break;
+            case 2:
+                lod = 5;
+                break;
+                
+        }
+
+        int verticesperline = (XmapSize / lod);
+        SetMeshData(verticesperline);
         int verticesIndex = 0;
 
-        for (int z = 0; z <= ZmapSize; z++)
+        for (int z = 0; z <= ZmapSize; z+= lod)
         {
-            for (int x = 0; x <= XmapSize; x++)
+            for (int x = 0; x <= XmapSize; x+= lod)
             {
                 vertices[verticesIndex] = new Vector3(x, heightCurve.Evaluate(noiseMap[x, z]) * terrainHeight, z);
                 uvs[verticesIndex] = new Vector2(x/(float)XmapSize, z/(float)ZmapSize);
@@ -148,13 +170,13 @@ public class MeshGeneration : MonoBehaviour
 
         //}
 
-        for (int z = 0; z < ZmapSize; z++)
+        for (int z = 0; z < ZmapSize; z+= lod)
         {
-            for (int x = 0; x < XmapSize; x++)
+            for (int x = 0; x < XmapSize; x+= lod)
             {
                 if (triangleIndex < triangles.Length)
                 {
-                    CreateQuad(XmapSize);
+                    CreateQuad(verticesperline);
                 }
             }
 
@@ -183,12 +205,12 @@ public class MeshGeneration : MonoBehaviour
         //triangles[triangleIndex + 5] = vertIndex + XmapSize + 1;
 
         triangles[triangleIndex + 0] = vertIndex;
-        triangles[triangleIndex + 1] = vertIndex + XmapSize + 1;
+        triangles[triangleIndex + 1] = vertIndex + xMapSize + 1;
         triangles[triangleIndex + 2] = vertIndex + 1;
 
         triangles[triangleIndex + 3] = vertIndex + 1;
-        triangles[triangleIndex + 4] = vertIndex + XmapSize + 1;
-        triangles[triangleIndex + 5] = vertIndex + XmapSize + 2;
+        triangles[triangleIndex + 4] = vertIndex + xMapSize + 1;
+        triangles[triangleIndex + 5] = vertIndex + xMapSize + 2;
 
         vertIndex++;
         triangleIndex += 6;
@@ -209,16 +231,26 @@ public class MeshGeneration : MonoBehaviour
         triangles = new int[(XmapSize) * (ZmapSize) * 6];
         uvs = new Vector2[(XmapSize + 1) * (ZmapSize + 1)];
     }
+    public void SetMeshData(int x)
+    {
+        triangleIndex = 0;
+        vertIndex = 0;
+        //Fix: in the vertices I had to increment mapSize + 1 for each
+        //10 Square and 11 vertices!
+        vertices = new Vector3[(x + 1) * (x + 1)];
+        triangles = new int[(x) * (x) * 6];
+        uvs = new Vector2[(x + 1) * (x + 1)];
+    }
 
 
-    //void OnDrawGizmos()
-    //{
-    //    if (vertices == null)
-    //        return;
+    void OnDrawGizmos()
+    {
+        if (vertices == null)
+            return;
 
-    //    for (int i = 0; i < vertices.Length; i++)
-    //    {
-    //        Gizmos.DrawSphere(vertices[i], .1f);
-    //    }
-    //}
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            Gizmos.DrawSphere(vertices[i], .1f);
+        }
+    }
 }
