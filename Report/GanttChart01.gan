@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Week1" company="" webLink="http://" view-date="2019-02-11" view-index="0" gantt-divider-location="729" resource-divider-location="300" version="2.8.10" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Week1" company="" webLink="http://" view-date="2019-03-09" view-index="0" gantt-divider-location="729" resource-divider-location="300" version="2.8.10" locale="en_GB">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
+    <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Name" width="541" order="0"/>
         <field id="tpd4" name="Begin date" width="99" order="1"/>
         <field id="tpd5" name="End date" width="85" order="2"/>
@@ -33,7 +33,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="74" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="77" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
             <task id="50" name="Sprint 1 - Initial Setup" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="false">
                 <depend id="111" type="2" difference="0" hardness="Strong"/>
                 <task id="82" name="Download all the chosen Software" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
@@ -94,16 +94,23 @@
                 </task>
                 <task id="217" name="Display the terrain using the heightmap inside the MeshClass" color="#8cb6ce" meeting="false" start="2019-03-07" duration="2" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="185" name="Sprint 5 - Graphic interface to change the terrain generation on the go" color="#8cb6ce" meeting="false" start="2019-03-09" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="185" name="Sprint 5 - Graphic interface to change the terrain generation on the go and Level of detail implementation" color="#8cb6ce" meeting="false" start="2019-03-09" duration="13" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <depend id="195" type="2" difference="0" hardness="Strong"/>
+                <task id="218" name="Research" color="#8cb6ce" meeting="false" start="2019-03-09" duration="4" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true">
+                    <depend id="219" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="219" name="Implement graphival user interface" color="#8cb6ce" meeting="false" start="2019-03-13" duration="1" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true">
+                    <depend id="220" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="220" name="Implement the level of detail functionality" color="#8cb6ce" meeting="false" start="2019-03-14" duration="8" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="195" name="Sprint 6 - Implement Thermal Noise algorithm for terrain erosion" color="#8cb6ce" meeting="false" start="2019-03-19" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="195" name="Sprint 6 - Implement Thermal Noise algorithm for terrain erosion" color="#8cb6ce" meeting="false" start="2019-03-22" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <depend id="197" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-03-29" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-04-01" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <depend id="208" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-04-08" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-04-11" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources/>
