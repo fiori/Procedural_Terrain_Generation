@@ -33,7 +33,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="77" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="82" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
             <task id="50" name="Sprint 1 - Initial Setup" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="false">
                 <depend id="111" type="2" difference="0" hardness="Strong"/>
                 <task id="82" name="Download all the chosen Software" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
@@ -104,13 +104,13 @@
                 </task>
                 <task id="220" name="Implement the level of detail functionality" color="#8cb6ce" meeting="false" start="2019-03-14" duration="8" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="195" name="Sprint 6 - Implement Thermal Noise algorithm for terrain erosion" color="#8cb6ce" meeting="false" start="2019-03-22" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="195" name="Sprint 6 - Studying fractals and fractal implementation for future using in hydraulic erosion" color="#8cb6ce" meeting="false" start="2019-03-22" duration="15" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <depend id="197" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-04-01" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-04-06" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <depend id="208" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-04-11" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-04-16" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources/>
