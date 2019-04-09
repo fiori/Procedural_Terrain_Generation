@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class TextureGeneration 
 {
-    public static Texture2D ColourMap(int width, int height, TerrainType[] terrains, float[,] noiseMap)
+    public static Texture2D ColourMap(int width, int height, TerrainType[] terrains, float[] noiseMap)
     {
         Color[] colourMap = new Color[width * height];
 
@@ -12,7 +12,8 @@ public static class TextureGeneration
         {
             for (int x = 0; x < width; x++)
             {
-                float currentNoiseMapHeight = noiseMap[x, y];
+                //TODO: Need to pass the map size instead of 255.
+                float currentNoiseMapHeight = noiseMap[y * 255 + x];
 
                 for (int i = 0; i < terrains.Length; i++)
                 {

@@ -12,6 +12,7 @@ public class MeshEditor : Editor
         {
             if (mesh.AutoUpdate)
             {
+                MeshGeneration.instance = mesh;
                 mesh.SetMeshData();
                 mesh.CreateShape();
                 mesh.UpdateMesh();
@@ -20,9 +21,17 @@ public class MeshEditor : Editor
 
         if (GUILayout.Button("Generate"))
         {
+            MeshGeneration.instance = mesh;
+            //WaterGeneration.CreateWater();
             mesh.SetMeshData();
             mesh.CreateShape();
             mesh.UpdateMesh();
+        }
+        if (GUILayout.Button("ErodeMyDick"))
+        {
+            //WaterGeneration.CreateWater();
+            mesh.Erode();
+
         }
     }
 }

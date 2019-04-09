@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
+using Random = System.Random;
 
 [System.Serializable]
 public struct TerrainType
@@ -22,8 +23,7 @@ public class MeshGeneration : MonoBehaviour
     Vector2[] uvs;
     int[] triangles;
 
-    public int XmapSize = 10;
-    public int ZmapSize = 10;
+    public int mapSize = 255;
 
     [Range(0,4)]
     public int LevelOfDetail = 0;
@@ -36,12 +36,12 @@ public class MeshGeneration : MonoBehaviour
 
     [Range(1,10)] public int octaves = 2;
 
-    [Range(1, 20)] public float terrainHeight = 10;
+    [Range(1, 50)] public float terrainHeight = 10;
     public bool AutoUpdate = false;
 
     public float perlinNoise = 0f;
     public AnimationCurve heightCurve;
-    private float[,] noiseMap;
+    private float[] noiseMap;
 
 
     [SerializeField] private int triangleIndex = 0;
@@ -51,9 +51,17 @@ public class MeshGeneration : MonoBehaviour
     //Sliders
     public Slider[] sliders;
 
+    //SingleTon
+    public static MeshGeneration instance;
+
+    private test2 erosion;
+
+    public int iterations = 30;
+
     void Awake()
     {
         SetMeshData();
+        instance = this;
     }
 
     // Start is called before the first frame update
@@ -64,32 +72,23 @@ public class MeshGeneration : MonoBehaviour
         sliders[1].onValueChanged.AddListener(delegate { persistance = sliders[1].value;});
         sliders[2].onValueChanged.AddListener(delegate { octaves = (int)sliders[2].value;});
         sliders[3].onValueChanged.AddListener(delegate { terrainHeight = sliders[3].value;});
-        
     }
-
-   
-
-    void Update()
-    {
-        UpdateMesh();
-    }
-
     public IEnumerator CreateShapeCouroutine()
     {
-        ////triangles = new int[(XmapSize - 1) * (ZmapSize - 1) * 6];
+        ////triangles = new int[(mapSize - 1) * (mapSize - 1) * 6];
 
         //int verticesIndex = 0;
 
-        //for (int z = 0; z < ZmapSize; z++)
+        //for (int z = 0; z < mapSize; z++)
         //{
-        //    for (int x = 0; x < XmapSize ; x++)
+        //    for (int x = 0; x < mapSize ; x++)
         //    {
         //        perlinNoise = PerlinNoise.Perlin(x * 0.1f, z * 0.1f, 0);
         //        vertices[verticesIndex] = new Vector3(x,/*perlinNoise * 20*/0,z);
         //        if (triangleIndex < triangles.Length)
         //        {
-        //            //CreateTriangle(verticesIndex + 1, verticesIndex, verticesIndex + XmapSize, ref triangleIndex);
-        //            //CreateTriangle(verticesIndex + 1, verticesIndex + XmapSize, verticesIndex + XmapSize + 1, ref triangleIndex);
+        //            //CreateTriangle(verticesIndex + 1, verticesIndex, verticesIndex + mapSize, ref triangleIndex);
+        //            //CreateTriangle(verticesIndex + 1, verticesIndex + mapSize, verticesIndex + mapSize + 1, ref triangleIndex);
         //        }
         //        verticesIndex++;
         //        yield return new WaitForSeconds(0.4f);
@@ -98,41 +97,63 @@ public class MeshGeneration : MonoBehaviour
 
         int verticesIndex = 0;
 
-        for (int z = 0; z <= ZmapSize; z++)
+        for (int z = 0; z <= mapSize; z++)
         {
-            for (int x = 0; x <= XmapSize; x++)
+            for (int x = 0; x <= mapSize; x++)
             {
-                vertices[verticesIndex] = new Vector3(x, noiseMap[x,z] * terrainHeight, z);
-                uvs[verticesIndex] = new Vector2(x / (float)XmapSize, z / (float)ZmapSize);
+                vertices[verticesIndex] = new Vector3(x, noiseMap[z*mapSize + x] * terrainHeight, z);
+                uvs[verticesIndex] = new Vector2(x / (float)mapSize, z / (float)mapSize);
                 verticesIndex++;
             }
         }
 
         //if (triangleIndex < triangles.Length)
         //{
-        //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + XmapSize);
-        //    //CreateTriangle(vertIndex + 1, vertIndex + XmapSize, vertIndex + XmapSize + 1);
-        //    CreateQuad(XmapSize);
+        //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + mapSize);
+        //    //CreateTriangle(vertIndex + 1, vertIndex + mapSize, vertIndex + mapSize + 1);
+        //    CreateQuad(mapSize);
 
         //}
 
-        for (int z = 0; z < ZmapSize; z++)
+        for (int z = 0; z < mapSize; z++)
         {
-            for (int x = 0; x < XmapSize; x++)
+            for (int x = 0; x < mapSize; x++)
             {
                 if (triangleIndex < triangles.Length)
                 {
-                    CreateQuad(XmapSize);
+                    CreateQuad(mapSize);
                     yield return new WaitForSeconds(0.00001f);
                 }
             }
             vertIndex++;
         }
     }
+    void Update()
+    {
+        UpdateMesh();
+    }
 
+
+    public void SetMeshData()
+    {
+        mymesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mymesh;
+        triangleIndex = 0;
+        vertIndex = 0;
+        noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
+        //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, mapSize, terrains, noiseMap);
+        //GetComponent<MeshRenderer>().material = cle
+        GetComponent<MeshRenderer>().sharedMaterial.mainTexture = null;
+        GetComponent<MeshRenderer>().sharedMaterial.color = Color.grey;
+        //Fix: in the vertices I had to increment mapSize + 1 for each
+        //10 Square and 11 vertices!
+        vertices = new Vector3[(mapSize + 1) * (mapSize + 1)];
+        triangles = new int[(mapSize) * (mapSize) * 6];
+        uvs = new Vector2[(mapSize + 1) * (mapSize + 1)];
+    }
     public void CreateShape()
     {
-        //triangles = new int[(XmapSize - 1) * (ZmapSize - 1) * 6];
+        //triangles = new int[(mapSize - 1) * (mapSize - 1) * 6];
 
         int lod = 0;
         switch (LevelOfDetail)
@@ -155,31 +176,32 @@ public class MeshGeneration : MonoBehaviour
         }
 
 
-    int verticesperline = (XmapSize / lod);
-        SetMeshData(verticesperline);
+    int verticesperline = (mapSize / lod);
+        //Sets the data for the Mesh, Vertices and Triangles
+        UpdateMeshData(verticesperline);
         int verticesIndex = 0;
 
-        for (int z = 0; z <= ZmapSize; z+= lod)
+        for (int y = 0; y <= mapSize; y+= lod)
         {
-            for (int x = 0; x <= XmapSize; x+= lod)
+            for (int x = 0; x <= mapSize; x+= lod)
             {
-                vertices[verticesIndex] = new Vector3(x, heightCurve.Evaluate(noiseMap[x, z]) * terrainHeight, z);
-                uvs[verticesIndex] = new Vector2(x/(float)XmapSize, z/(float)ZmapSize);
+                vertices[verticesIndex] = new Vector3(x, heightCurve.Evaluate(noiseMap[y * mapSize + x]) * terrainHeight, y);
+                uvs[verticesIndex] = new Vector2(x/(float)mapSize, y/(float)mapSize);
                 verticesIndex++;
             }
         }
 
         //if (triangleIndex < triangles.Length)
         //{
-        //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + XmapSize);
-        //    //CreateTriangle(vertIndex + 1, vertIndex + XmapSize, vertIndex + XmapSize + 1);
-        //    CreateQuad(XmapSize);
+        //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + mapSize);
+        //    //CreateTriangle(vertIndex + 1, vertIndex + mapSize, vertIndex + mapSize + 1);
+        //    CreateQuad(mapSize);
 
         //}
 
-        for (int z = 0; z < ZmapSize; z+= lod)
+        for (int z = 0; z < mapSize; z+= lod)
         {
-            for (int x = 0; x < XmapSize; x+= lod)
+            for (int x = 0; x < mapSize; x+= lod)
             {
                 if (triangleIndex < triangles.Length)
                 {
@@ -191,7 +213,6 @@ public class MeshGeneration : MonoBehaviour
         }
 
     }
-
     public void UpdateMesh()
     {
         mymesh.Clear();
@@ -201,15 +222,25 @@ public class MeshGeneration : MonoBehaviour
         mymesh.RecalculateNormals();
     }
 
+    public void UpdateMeshData(int x)
+    {
+        triangleIndex = 0;
+        vertIndex = 0;
+        //Fix: in the vertices I had to increment mapSize + 1 for each
+        //10 Square and 11 vertices!
+        vertices = new Vector3[(x + 1) * (x + 1)];
+        triangles = new int[(x) * (x) * 6];
+        uvs = new Vector2[(x + 1) * (x + 1)];
+    }
     void CreateQuad(int xMapSize)
     {
         //triangles[triangleIndex + 0] = vertIndex;
-        //triangles[triangleIndex + 1] = vertIndex + XmapSize;
+        //triangles[triangleIndex + 1] = vertIndex + mapSize;
         //triangles[triangleIndex + 2] = vertIndex + 1;
 
         //triangles[triangleIndex + 3] = vertIndex + 1;
-        //triangles[triangleIndex + 4] = vertIndex + XmapSize;
-        //triangles[triangleIndex + 5] = vertIndex + XmapSize + 1;
+        //triangles[triangleIndex + 4] = vertIndex + mapSize;
+        //triangles[triangleIndex + 5] = vertIndex + mapSize + 1;
 
         triangles[triangleIndex + 0] = vertIndex;
         triangles[triangleIndex + 1] = vertIndex + xMapSize + 1;
@@ -222,32 +253,15 @@ public class MeshGeneration : MonoBehaviour
         vertIndex++;
         triangleIndex += 6;
     }
+    public void Erode()
+    {
+        noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
+        erosion = FindObjectOfType<test2>();
+        erosion.Erode(noiseMap, mapSize, iterations);
+        CreateShape();
+        UpdateMesh();
+    }
 
-    public void SetMeshData()
-    {
-        mymesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mymesh;
-        triangleIndex = 0;
-        vertIndex = 0;
-        noiseMap = MapGeneration.GenerateNoiseMap(XmapSize, ZmapSize, noiseScale, lacunarity, persistance, octaves);
-        GetComponent<MeshRenderer>().sharedMaterial.mainTexture =
-            TextureGeneration.ColourMap(XmapSize, ZmapSize, terrains, noiseMap);
-        //Fix: in the vertices I had to increment mapSize + 1 for each
-        //10 Square and 11 vertices!
-        vertices = new Vector3[(XmapSize + 1) * (ZmapSize + 1)];
-        triangles = new int[(XmapSize) * (ZmapSize) * 6];
-        uvs = new Vector2[(XmapSize + 1) * (ZmapSize + 1)];
-    }
-    public void SetMeshData(int x)
-    {
-        triangleIndex = 0;
-        vertIndex = 0;
-        //Fix: in the vertices I had to increment mapSize + 1 for each
-        //10 Square and 11 vertices!
-        vertices = new Vector3[(x + 1) * (x + 1)];
-        triangles = new int[(x) * (x) * 6];
-        uvs = new Vector2[(x + 1) * (x + 1)];
-    }
 
 
     //void OnDrawGizmos()
