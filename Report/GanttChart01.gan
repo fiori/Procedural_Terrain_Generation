@@ -33,7 +33,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="97" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
+        <task id="34" name="Project" color="#000000" meeting="false" start="2019-02-13" duration="78" complete="0" thirdDate="2019-02-14" thirdDate-constraint="0" expand="true">
             <task id="50" name="Sprint 1 - Initial Setup" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="false">
                 <depend id="111" type="2" difference="0" hardness="Strong"/>
                 <task id="82" name="Download all the chosen Software" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
@@ -111,10 +111,7 @@
                 </task>
                 <task id="222" name="Fractal Generation" color="#8cb6ce" meeting="false" start="2019-03-31" duration="6" complete="0" thirdDate="2019-03-09" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-04-06" duration="25" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
-                <depend id="208" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="208" name="Sprint 8 - Create a Unity Plug-in and Work on the final Report" color="#8cb6ce" meeting="false" start="2019-05-01" duration="20" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+            <task id="197" name="Sprint 7 - Implement Hydraulic Erosion aglorithm" color="#8cb6ce" meeting="false" start="2019-04-06" duration="26" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources/>

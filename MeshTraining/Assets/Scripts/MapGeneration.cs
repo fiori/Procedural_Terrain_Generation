@@ -1,61 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class MapGeneration 
+﻿namespace Assets.Scripts
 {
-    //Lacunarity = control the increase in frequency of octaves
-    //Persistance = control the increase in amplitude of octaves
-    public static float[] GenerateNoiseMap(int mapSize, float noiseScale, float lacunarity, float persistance, int octaves)
+    public static class MapGeneration 
     {
-        float[] map = new float[(mapSize + 1) * (mapSize + 1)];
-
-        if (noiseScale <= 0)
+        //Lacunarity = control the increase in frequency of octaves
+        //Persistance = control the increase in amplitude of octaves
+        public static float[] GenerateNoiseMap(int mapSize, float noiseScale, float lacunarity, float persistance, int octaves)
         {
-            noiseScale = 0.00001f;
-        }
+            float[] map = new float[(mapSize + 1) * (mapSize + 1)];
 
-        float maxNoiseHeight = float.MinValue;
-        float minNoiseHeight = float.MaxValue;
-
-        for (int y = 0; y <= mapSize; y++)
-        {
-            for (int x = 0; x <= mapSize; x++)
+            if (noiseScale <= 0)
             {
-                //Controls the height of the noise map
-                float amplitude = 1;
-                //Controls the width of the noise map
-                float frequency = 1;
-                float noiseHeight = 0;
-                for (int o = 0; o < octaves; o++)
+                noiseScale = 0.00001f;
+            }
+
+            float maxNoiseHeight = float.MinValue;
+            float minNoiseHeight = float.MaxValue;
+
+            for (int y = 0; y <= mapSize; y++)
+            {
+                for (int x = 0; x <= mapSize; x++)
                 {
-                    float valueX = x / noiseScale * frequency;
-                    float valueY = y / noiseScale * frequency;
+                    //Controls the height of the noise map
+                    float amplitude = 1;
+                    //Controls the width of the noise map
+                    float frequency = 1;
+                    float noiseHeight = 0;
+                    for (int o = 0; o < octaves; o++)
+                    {
+                        float valueX = x / noiseScale * frequency;
+                        float valueY = y / noiseScale * frequency;
 
-                    float perlinValue = PerlinNoise.Perlin(valueX, valueY, 0);
-                    noiseHeight += perlinValue * amplitude;
+                        float perlinValue = PerlinNoise.Perlin(valueX, valueY, 0);
+                        noiseHeight += perlinValue * amplitude;
 
-                    amplitude *= persistance;
-                    frequency *= lacunarity;
+                        amplitude *= persistance;
+                        frequency *= lacunarity;
 
+                    }
+                    if (noiseHeight > maxNoiseHeight)
+                        maxNoiseHeight = noiseHeight;
+                    else if (noiseHeight < minNoiseHeight)
+                        minNoiseHeight = noiseHeight;
+                    map[y * mapSize + x] = noiseHeight;
                 }
-                if (noiseHeight > maxNoiseHeight)
-                    maxNoiseHeight = noiseHeight;
-                else if (noiseHeight < minNoiseHeight)
-                    minNoiseHeight = noiseHeight;
-                map[y * mapSize + x] = noiseHeight;
             }
-        }
 
-        for (int y = 0; y <= mapSize; y++)
-        {
-            for (int x = 0; x <= mapSize; x++)
+            for (int y = 0; y <= mapSize; y++)
             {
-                //Making sure that the noiseMap is only between [0,1] values
-                map[y * mapSize + x] = (map[y * mapSize + x] - minNoiseHeight) / (maxNoiseHeight - minNoiseHeight);
+                for (int x = 0; x <= mapSize; x++)
+                {
+                    //Making sure that the noiseMap is only between [0,1] values
+                    map[y * mapSize + x] = (map[y * mapSize + x] - minNoiseHeight) / (maxNoiseHeight - minNoiseHeight);
+                }
             }
-        }
 
-        return map;
+            return map;
+        }
     }
 }

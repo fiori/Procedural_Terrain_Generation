@@ -1,37 +1,41 @@
-﻿using UnityEditor;
+﻿using Assets.Scripts;
+using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(MeshGeneration))]
-public class MeshEditor : Editor
+namespace Assets.Editor
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(MeshGeneration))]
+    public class MeshEditor : UnityEditor.Editor
     {
-        MeshGeneration mesh = (MeshGeneration) target;
-
-        if (DrawDefaultInspector())
+        public override void OnInspectorGUI()
         {
-            if (mesh.AutoUpdate)
+            MeshGeneration mesh = (MeshGeneration) target;
+
+            if (DrawDefaultInspector())
+            {
+                if (mesh.AutoUpdate)
+                {
+                    MeshGeneration.instance = mesh;
+                    mesh.SetMeshData();
+                    mesh.CreateShape();
+                    mesh.UpdateMesh();
+                }
+            }
+
+            if (GUILayout.Button("Generate"))
             {
                 MeshGeneration.instance = mesh;
+                //WaterGeneration.CreateWater();
                 mesh.SetMeshData();
                 mesh.CreateShape();
                 mesh.UpdateMesh();
             }
-        }
+            if (GUILayout.Button("Erosion"))
+            {
+                //WaterGeneration.CreateWater();
+                mesh.Erode();
 
-        if (GUILayout.Button("Generate"))
-        {
-            MeshGeneration.instance = mesh;
-            //WaterGeneration.CreateWater();
-            mesh.SetMeshData();
-            mesh.CreateShape();
-            mesh.UpdateMesh();
-        }
-        if (GUILayout.Button("ErodeMyDick"))
-        {
-            //WaterGeneration.CreateWater();
-            mesh.Erode();
-
+            }
         }
     }
 }

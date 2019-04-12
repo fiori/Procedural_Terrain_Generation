@@ -1,36 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class TextureGeneration 
+namespace Assets.Scripts
 {
-    public static Texture2D ColourMap(int width, int height, TerrainType[] terrains, float[] noiseMap)
+    public static class TextureGeneration 
     {
-        Color[] colourMap = new Color[width * height];
-
-        for (int y = 0; y < height; y++)
+        public static Texture2D ColourMap(int width, int height, TerrainType[] terrains, float[] noiseMap)
         {
-            for (int x = 0; x < width; x++)
-            {
-                //TODO: Need to pass the map size instead of 255.
-                float currentNoiseMapHeight = noiseMap[y * 255 + x];
+            Color[] colourMap = new Color[width * height];
 
-                for (int i = 0; i < terrains.Length; i++)
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
                 {
-                    if (currentNoiseMapHeight <= terrains[i].height)
+                    //TODO: Need to pass the map size instead of 255.
+                    float currentNoiseMapHeight = noiseMap[y * 255 + x];
+
+                    for (int i = 0; i < terrains.Length; i++)
                     {
-                        colourMap[y * width + x] = terrains[i].colour;
-                        break;
-                    }    
+                        if (currentNoiseMapHeight <= terrains[i].height)
+                        {
+                            colourMap[y * width + x] = terrains[i].colour;
+                            break;
+                        }    
+                    }
                 }
             }
-        }
 
-        Texture2D texture = new Texture2D(width, height);
-        texture.filterMode = FilterMode.Point;
-        texture.wrapMode = TextureWrapMode.Clamp;
-        texture.SetPixels(colourMap);
-        texture.Apply();
-        return texture;
+            Texture2D texture = new Texture2D(width, height);
+            texture.filterMode = FilterMode.Point;
+            texture.wrapMode = TextureWrapMode.Clamp;
+            texture.SetPixels(colourMap);
+            texture.Apply();
+            return texture;
+        }
     }
 }
