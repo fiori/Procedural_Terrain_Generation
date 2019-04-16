@@ -39,7 +39,6 @@ namespace Assets.Scripts
 
         public void Erode(float[] map, int mapSize, int numIterations = 1, bool resetSeed = false)
         {
-            //Initialize(mapSize, resetSeed);
             if (_rng == null)
             {
                 _seed = Random.Range(0, 100);
@@ -49,7 +48,7 @@ namespace Assets.Scripts
 
             for (int iteration = 0; iteration < numIterations; iteration++)
             {
-                // Create water droplet at random point on map
+                // Create water drop at a random location on the map
                 float posX = _rng.Next(0, mapSize - 1);
                 float posY = _rng.Next(0, mapSize - 1);
                 float dirX = 0;
@@ -63,16 +62,17 @@ namespace Assets.Scripts
                     int nodeX = (int)posX;
                     int nodeY = (int)posY;
                     int dropletIndex = nodeY * mapSize + nodeX;
-                    // Calculate droplet's offset inside the cell (0,0) = at NW node, (1,1) = at SE node
+                    // Calculate droplet's offset inside the cell (0,0) = at node00, (1,1) = at node11
                     float cellOffsetX = posX - nodeX;
                     float cellOffsetY = posY - nodeY;
 
-                    // Calculate droplet's height and direction of flow with bilinear interpolation of surrounding heights
+                    //Calculate the gradient for the droplet
                     Gradient gradient = CalculateGradient(map, mapSize, posX, posY);
 
-                    // Update the droplet's direction and position (move position 1 unit regardless of speed)
-                    dirX = (dirX - gradient.X);
-                    dirY = (dirY - gradient.Y);
+                    // Update the droplet's direction
+                    dirX -= gradient.X;
+                    dirY -= gradient.Y;
+
                     // Normalize direction
                     float len = Mathf.Sqrt(dirX * dirX + dirY * dirY);
                     if (len != 0)
@@ -91,7 +91,7 @@ namespace Assets.Scripts
                         break;
                     }
 
-                    // Find the droplet's new height and calculate the deltaHeight
+                    // Find the droplet's new height
                     float newHeight = CalculateGradient(map, mapSize, posX, posY).Height;
                     float deltaHeight = newHeight - gradient.Height;
 
@@ -105,7 +105,12 @@ namespace Assets.Scripts
                     if (sediment > sedimentCapacity || deltaHeight > 0)
                     {
                         // If moving uphill (deltaHeight > 0) try fill up to the current height, otherwise deposit a fraction of the excess sediment
-                        float amountToDeposit = (deltaHeight > 0) ? Mathf.Min(deltaHeight, sediment) : (sediment - sedimentCapacity) * DepositionSpeed;
+                        float amountToDeposit;
+                        if (deltaHeight > 0)
+                            amountToDeposit = Mathf.Min(deltaHeight, sediment);
+                        else
+                            amountToDeposit = (sediment - sedimentCapacity) * DepositionSpeed;
+
                         sediment -= amountToDeposit;
 
                         // Add the sediment to the four nodes of the current cell using bilinear interpolation
@@ -119,7 +124,7 @@ namespace Assets.Scripts
                     else
                     {
                         // Erode a fraction of the droplet's current carry capacity.
-                        // Clamp the erosion to the change in height so that it doesn't dig a hole in the terrain behind the droplet
+                        // Clamp the amount to erode
                         float amountToErode = Mathf.Min((sedimentCapacity - sediment) * ErosionSpeed, -deltaHeight);
 
                         float weighedErodeAmount = amountToErode * Random.Range(0.01f, Radius);
@@ -162,5 +167,7 @@ namespace Assets.Scripts
 
             return new Gradient() { Height = height, X = slopeX, Y = slopeY };
         }
+
+     
     }
 }
