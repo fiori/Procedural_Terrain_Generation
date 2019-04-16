@@ -81,7 +81,7 @@ namespace Assets.Scripts
                         dirY /= len;
                     }
                 
-                    posX += dirX;
+                    posX += dirX; 
                     posY += dirY;
 
                     // Stop simulating droplet if it's not moving or has flowed over edge of map, this code if extremly important without it, the index goes outside the bounds of the array.
