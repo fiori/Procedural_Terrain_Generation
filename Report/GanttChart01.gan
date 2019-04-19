@@ -41,13 +41,17 @@
                 </task>
                 <task id="83" name="Create a Git repository for the fmp" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                     <depend id="84" type="3" difference="0" hardness="Strong"/>
+                    <depend id="224" type="3" difference="0" hardness="Strong"/>
                 </task>
                 <task id="84" name="Create the Unity Project" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                     <depend id="85" type="3" difference="0" hardness="Strong"/>
                 </task>
-                <task id="85" name="Push the project to github" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                <task id="224" name="Create the necessary project folders" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+                    <depend id="85" type="3" difference="0" hardness="Strong"/>
+                </task>
+                <task id="85" name="Push the project to git" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="111" name="Sprint 2 - Algorithm Researching" color="#8cb6ce" meeting="false" start="2019-02-14" duration="7" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="false">
+            <task id="111" name="Sprint 2 - Algorithm Researching" color="#8cb6ce" meeting="false" start="2019-02-14" duration="7" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true">
                 <depend id="112" type="2" difference="0" hardness="Strong"/>
                 <task id="133" name="Research Terrain Synthesis Algorithms" meeting="false" start="2019-02-14" duration="2" complete="0" expand="true">
                     <depend id="138" type="2" difference="0" hardness="Strong"/>

@@ -1,0 +1,90 @@
+\hypertarget{class_assets_1_1_scripts_1_1_perlin_noise}{}\section{Assets.\+Scripts.\+Perlin\+Noise Class Reference}
+\label{class_assets_1_1_scripts_1_1_perlin_noise}\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_abb0f38b2065f2bf92baa8e33b364fad3}\label{class_assets_1_1_scripts_1_1_perlin_noise_abb0f38b2065f2bf92baa8e33b364fad3}} 
+static float {\bfseries Octave\+Perlin} (float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)
+\item 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}\label{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}} 
+static float {\bfseries Perlin} (float x, float y, float z)
+\item 
+static float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}{grad}} (int hash, float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}\label{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}} 
+static float {\bfseries lerp} (float first\+Double, float second\+Double, float by)
+\item 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}\label{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}} 
+static float {\bfseries fade} (float t)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}{Permutation}}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}\label{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}} 
+static readonly int \mbox{[}$\,$\mbox{]} {\bfseries p}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}\label{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!grad@{grad}}
+\index{grad@{grad}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{grad()}{grad()}}
+{\footnotesize\ttfamily static float Assets.\+Scripts.\+Perlin\+Noise.\+grad (\begin{DoxyParamCaption}\item[{int}]{hash,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em z} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}\label{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!Permutation@{Permutation}}
+\index{Permutation@{Permutation}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{Permutation}{Permutation}}
+{\footnotesize\ttfamily readonly int \mbox{[}$\,$\mbox{]} Assets.\+Scripts.\+Perlin\+Noise.\+Permutation\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            151, 160, 137, 91, 90, 15, 131, 13, 201, 95, 96, 53, 194, 233, 7, 225, 140, 36, 103, 30, 69,}
+\DoxyCodeLine{            142, 8, 99, 37, 240, 21, 10, 23,}
+\DoxyCodeLine{            190, 6, 148, 247, 120, 234, 75, 0, 26, 197, 62, 94, 252, 219, 203, 117, 35, 11, 32, 57, 177, 33,}
+\DoxyCodeLine{            88, 237, 149, 56, 87, 174, 20, 125, 136, 171, 168, 68, 175, 74, 165, 71, 134, 139, 48, 27, 166,}
+\DoxyCodeLine{            77, 146, 158, 231, 83, 111, 229, 122, 60, 211, 133, 230, 220, 105, 92, 41, 55, 46, 245, 40, 244,}
+\DoxyCodeLine{            102, 143, 54, 65, 25, 63, 161, 1, 216, 80, 73, 209, 76, 132, 187, 208, 89, 18, 169, 200, 196,}
+\DoxyCodeLine{            135, 130, 116, 188, 159, 86, 164, 100, 109, 198, 173, 186, 3, 64, 52, 217, 226, 250, 124, 123,}
+\DoxyCodeLine{            5, 202, 38, 147, 118, 126, 255, 82, 85, 212, 207, 206, 59, 227, 47, 16, 58, 17, 182, 189, 28, 42,}
+\DoxyCodeLine{            223, 183, 170, 213, 119, 248, 152, 2, 44, 154, 163, 70, 221, 153, 101, 155, 167, 43, 172, 9,}
+\DoxyCodeLine{            129, 22, 39, 253, 19, 98, 108, 110, 79, 113, 224, 232, 178, 185, 112, 104, 218, 246, 97, 228,}
+\DoxyCodeLine{            251, 34, 242, 193, 238, 210, 144, 12, 191, 179, 162, 241, 81, 51, 145, 235, 249, 14, 239, 107,}
+\DoxyCodeLine{            49, 192, 214, 31, 181, 199, 106, 157, 184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254,}
+\DoxyCodeLine{            138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+Hash lookup table as defined by Ken Perlin. This is a randomly arranged array of all numbers from 0-\/255 inclusive. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/\+Unity/\+F\+M\+P/\+Fmp/\+Final\+Major\+Project\+\_\+\+Procedural\+Terrain\+Generation/\+Assets/\+Scripts/Perlin\+Noise.\+cs\end{DoxyCompactItemize}

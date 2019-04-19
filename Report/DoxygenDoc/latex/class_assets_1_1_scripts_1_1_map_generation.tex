@@ -1,0 +1,41 @@
+\hypertarget{class_assets_1_1_scripts_1_1_map_generation}{}\section{Assets.\+Scripts.\+Map\+Generation Class Reference}
+\label{class_assets_1_1_scripts_1_1_map_generation}\index{Assets.Scripts.MapGeneration@{Assets.Scripts.MapGeneration}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_assets_1_1_scripts_1_1_map_generation_a1b9a4afede5e30c156b0a9d848c9182a}{Generate\+Noise\+Map}} (int map\+Size, float noise\+Scale, float lacunarity, float persistance, int octaves)
+\begin{DoxyCompactList}\small\item\em Generates a noise\+Map through the \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise}{Perlin\+Noise}} class \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_map_generation_a1b9a4afede5e30c156b0a9d848c9182a}\label{class_assets_1_1_scripts_1_1_map_generation_a1b9a4afede5e30c156b0a9d848c9182a}} 
+\index{Assets.Scripts.MapGeneration@{Assets.Scripts.MapGeneration}!GenerateNoiseMap@{GenerateNoiseMap}}
+\index{GenerateNoiseMap@{GenerateNoiseMap}!Assets.Scripts.MapGeneration@{Assets.Scripts.MapGeneration}}
+\subsubsection{\texorpdfstring{GenerateNoiseMap()}{GenerateNoiseMap()}}
+{\footnotesize\ttfamily static float \mbox{[}$\,$\mbox{]} Assets.\+Scripts.\+Map\+Generation.\+Generate\+Noise\+Map (\begin{DoxyParamCaption}\item[{int}]{map\+Size,  }\item[{float}]{noise\+Scale,  }\item[{float}]{lacunarity,  }\item[{float}]{persistance,  }\item[{int}]{octaves }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a noise\+Map through the \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise}{Perlin\+Noise}} class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Size} & The pretended size of the map\\
+\hline
+{\em noise\+Scale} & This parameter is responsible for the scale of the Noise\+Map, if we increase this value the noise\+Map is zoomed in. In other words is the distance that we view the noise\+Map\\
+\hline
+{\em lacunarity} & Controls the increase in frequency of octaves, the width of the wave\\
+\hline
+{\em persistance} & Controls the increase in amplitude of octaves, the height of the wave\\
+\hline
+{\em octaves} & Octave is the number of level of detail for the perlin noise\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a float\mbox{[}\mbox{]} with the Noise\+Map
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+P\+:/\+Unity/\+F\+M\+P/\+Fmp/\+Final\+Major\+Project\+\_\+\+Procedural\+Terrain\+Generation/\+Assets/\+Scripts/Map\+Generation.\+cs\end{DoxyCompactItemize}
