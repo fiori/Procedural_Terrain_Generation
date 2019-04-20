@@ -4,27 +4,28 @@ namespace Assets.Scripts
 {
     public static class PerlinNoise
     {
-        public static float OctavePerlin(float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)
-        {
-            float total = 0;
-            float frequency = 1;
-            float amplitude = 1;
-            float maxValue = 0;
-            for (int i = 0; i < octaves; i++)
-            {
-                float valueX = x / scale * frequency;
-                float valueY = y / scale * frequency;
-                float valueZ = z / scale * frequency;
-                total += Perlin(valueX, valueY, valueZ) * amplitude;
 
-                maxValue += amplitude;
+        //public static float OctavePerlin(float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)
+        //{
+        //    float total = 0;
+        //    float frequency = 1;
+        //    float amplitude = 1;
+        //    float maxValue = 0;
+        //    for (int i = 0; i < octaves; i++)
+        //    {
+        //        float valueX = x / scale * frequency;
+        //        float valueY = y / scale * frequency;
+        //        float valueZ = z / scale * frequency;
+        //        total += Perlin(valueX, valueY, valueZ) * amplitude;
 
-                amplitude *= persistance;
-                frequency *= lacunarity;
-            }
+        //        maxValue += amplitude;
 
-            return total / maxValue;
-        }
+        //        amplitude *= persistance;
+        //        frequency *= lacunarity;
+        //    }
+
+        //    return total / maxValue;
+        //}
 
 
         /// Hash lookup table as defined by Ken Perlin.  This is a randomly
@@ -45,8 +46,15 @@ namespace Assets.Scripts
             138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180
         };
 
+        /// <summary>
+        /// int array for allocating all the possible permutations with 510 different permutations
+        /// </summary>
         private static readonly int[] p;
 
+        /// <summary>
+        /// The constructor initializes the P arrray with a size of int[512]
+        /// and adds all the possible permutations 
+        /// </summary>
         static PerlinNoise()
         {
             p = new int[512]; // Used in a hash function
@@ -56,6 +64,13 @@ namespace Assets.Scripts
             }
         }
 
+        /// <summary>
+        /// A 3D Perlin Noise method
+        /// </summary>
+        /// <param name="x">Position Vector X</param>
+        /// <param name="y">Position Vector Y</param>
+        /// <param name="z">Position Vector Z</param>
+        /// <returns>Returns the absolute Perlin Noise value</returns>
         public static float Perlin(float x, float y, float z)
         {
             //Start using Mathf.Floor() 
@@ -78,7 +93,7 @@ namespace Assets.Scripts
             //Right Corner
             int B = p[xi + 1] + yi;
         
-            //The 8 cube corners
+            //The 4 corners
             int AA = p[A] + zi;
             int AB = p[A+1] + zi;
             int BB = p[B+1] + zi;
@@ -135,7 +150,7 @@ namespace Assets.Scripts
         //The Ken Perlin's original grade() function using complicated and confusing bit-flipping code to calculate the dot product of a randomly selected
         //gradient vector and the 8 location vectors.
         //Source:  https://mrl.nyu.edu/~perlin/noise/
-        //public static float gradientKenPerlinOriginal(int hash, float x, float y, float z)
+        //public static float grad(int hash, float x, float y, float z)
         //{
         //    int h = hash & 15; // Take the hased value and take the first 4 bits of it ( 15 == 0b1111)
         //    float u = h < 8 /* 0b1000 */ ? x : y; // If the most significant bit (MSB) of the hash is 0 then set u = x. Otherwise y.
@@ -153,19 +168,15 @@ namespace Assets.Scripts
 
         //}
 
-        //Easy and alternative way to write the gradient function
-        // Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
+
         /// <summary>
+        /// Easy and alternative way to write the gradient function
+        /// Source: http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
         ///Picks a random vector from the following 12 vectors:
         ///(1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0),
         ///(1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1),
         ///(0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)
         /// </summary>
-        /// <param name="hash"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
-        /// <returns></returns>
         public static float grad(int hash, float x, float y, float z)
         {
             switch (hash & 0xF)
@@ -188,8 +199,6 @@ namespace Assets.Scripts
                 case 0xF: return -y - z;
                 default: return 0; // never happens    
             }
-
-
         }
 
         ////Easy and alternative way to write the gradient function
@@ -218,15 +227,26 @@ namespace Assets.Scripts
         //}
 
         //Linear Interpolation
+        /// <summary>
+        /// Linear interpolation
+        /// </summary>
         public static float lerp(float firstDouble, float secondDouble, float by)
         {
-            return firstDouble + by * (secondDouble - firstDouble);
-            //return firstDouble + (secondDouble - firstDouble) * by;
+            return firstDouble + (secondDouble - firstDouble) * by;
         }
 
+        /// <summary>
+        /// Fade function is responsible for easing the curve in the algorithm, this is applied to the U, V and W values creating
+        /// more gradual changes as the values gets closer to integral coordinates. 
+        /// </summary>
         public static float fade(float t)
         {
             return t * t * t * (t * (t * 6 - 15) + 10); // 6T^5 - 15T^4 + 10T^3
         }
+
+        //public static float fade(float t)
+        //{
+        //    return t * t * (3 - 2 * t); //3t^2 - 2t^3
+        //}
     }
 }

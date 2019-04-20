@@ -142,10 +142,10 @@ namespace Assets.Scripts
             triangleIndex = 0;
             vertIndex = 0;
             noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
-            //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, mapSize, terrains, noiseMap);
-            //GetComponent<MeshRenderer>().material = cle
             GetComponent<MeshRenderer>().sharedMaterial.mainTexture = null;
-            GetComponent<MeshRenderer>().sharedMaterial.color = Color.grey;
+            //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, mapSize, terrains, noiseMap);
+
+            GetComponent<MeshRenderer>().sharedMaterial.color = Color.gray;
             //Fix: in the vertices I had to increment mapSize + 1 for each
             //10 Square and 11 vertices!
             vertices = new Vector3[(mapSize + 1) * (mapSize + 1)];
