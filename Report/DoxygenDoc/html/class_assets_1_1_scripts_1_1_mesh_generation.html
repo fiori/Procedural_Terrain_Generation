@@ -92,16 +92,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a132027f38358668e6f8c320b00ee9327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the mesh, sets the mesh filter to the mesh just created Generates the noiseMap and stores it inside the _noiseMap Adds a mainTexture or color using the component MeshRenderer to the new mesh we created Initializes the vertices,triangles and uvs.  <a href="#a132027f38358668e6f8c320b00ee9327">More...</a><br /></td></tr>
 <tr class="separator:a132027f38358668e6f8c320b00ee9327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#aebf4b5f0cb1285927d7c44a03e98d78c">CreateShape</a> ()</td></tr>
-<tr class="memdesc:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method UpdateMeshData() to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize.  <a href="#aebf4b5f0cb1285927d7c44a03e98d78c">More...</a><br /></td></tr>
+<tr class="memdesc:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#abaeb22e0f390a218be5d9543138f52b9" title="This method is used due to the fact that the author implemented the level of detail in the mesh">UpdateMeshData()</a> to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize.  <a href="#aebf4b5f0cb1285927d7c44a03e98d78c">More...</a><br /></td></tr>
 <tr class="separator:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41a4e7a75db511109f7837f1f0fa376b"><td class="memItemLeft" align="right" valign="top"><a id="a41a4e7a75db511109f7837f1f0fa376b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateMesh</b> ()</td></tr>
+<tr class="memitem:a41a4e7a75db511109f7837f1f0fa376b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a41a4e7a75db511109f7837f1f0fa376b">UpdateMesh</a> ()</td></tr>
+<tr class="memdesc:a41a4e7a75db511109f7837f1f0fa376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current Mesh Sets the Mesh.vertices, triangles and uvs = to the ones generated in create <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#abaeb22e0f390a218be5d9543138f52b9" title="This method is used due to the fact that the author implemented the level of detail in the mesh">UpdateMeshData()</a> method. And to finish it calls the function RecaculateNormals() in the mesh.  <a href="#a41a4e7a75db511109f7837f1f0fa376b">More...</a><br /></td></tr>
 <tr class="separator:a41a4e7a75db511109f7837f1f0fa376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaeb22e0f390a218be5d9543138f52b9"><td class="memItemLeft" align="right" valign="top"><a id="abaeb22e0f390a218be5d9543138f52b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateMeshData</b> (int x)</td></tr>
+<tr class="memitem:abaeb22e0f390a218be5d9543138f52b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#abaeb22e0f390a218be5d9543138f52b9">UpdateMeshData</a> (int x)</td></tr>
+<tr class="memdesc:abaeb22e0f390a218be5d9543138f52b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used due to the fact that the author implemented the level of detail in the mesh  <a href="#abaeb22e0f390a218be5d9543138f52b9">More...</a><br /></td></tr>
 <tr class="separator:abaeb22e0f390a218be5d9543138f52b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ca64ff2f5c1b7f9073699905628e6dd"><td class="memItemLeft" align="right" valign="top"><a id="a4ca64ff2f5c1b7f9073699905628e6dd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Erode</b> ()</td></tr>
+<tr class="memitem:a4ca64ff2f5c1b7f9073699905628e6dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a4ca64ff2f5c1b7f9073699905628e6dd">Erode</a> ()</td></tr>
+<tr class="memdesc:a4ca64ff2f5c1b7f9073699905628e6dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The erosion method searches for the script named <a class="el" href="class_assets_1_1_scripts_1_1_erosion.html">Erosion</a> attached to this object and it passes the reference to the erosion variable. Then it runes the Erode method present in Erosion.cs Creates the eroded shape for the mesh and to finish it updates the mesh  <a href="#a4ca64ff2f5c1b7f9073699905628e6dd">More...</a><br /></td></tr>
 <tr class="separator:a4ca64ff2f5c1b7f9073699905628e6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -177,8 +177,8 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a4cb917bfef5c78eba6e24157eb187e4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a4cb917bfef5c78eba6e24157eb187e4d">Update</a> ()</td></tr>
 <tr class="memdesc:a4cb917bfef5c78eba6e24157eb187e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Mesh every second.  <a href="#a4cb917bfef5c78eba6e24157eb187e4d">More...</a><br /></td></tr>
 <tr class="separator:a4cb917bfef5c78eba6e24157eb187e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62d43347495810972a55224a8ff7a7a1"><td class="memItemLeft" align="right" valign="top"><a id="a62d43347495810972a55224a8ff7a7a1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateQuad</b> (int xMapSize)</td></tr>
+<tr class="memitem:a62d43347495810972a55224a8ff7a7a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a62d43347495810972a55224a8ff7a7a1">CreateQuad</a> (int xMapSize)</td></tr>
+<tr class="memdesc:a62d43347495810972a55224a8ff7a7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method creates two triangles making a quad.  <a href="#a62d43347495810972a55224a8ff7a7a1">More...</a><br /></td></tr>
 <tr class="separator:a62d43347495810972a55224a8ff7a7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -240,6 +240,40 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="a62d43347495810972a55224a8ff7a7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d43347495810972a55224a8ff7a7a1">&#9670;&nbsp;</a></span>CreateQuad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.CreateQuad </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xMapSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method creates two triangles making a quad. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xMapSize</td><td>Vertices per line</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aebf4b5f0cb1285927d7c44a03e98d78c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebf4b5f0cb1285927d7c44a03e98d78c">&#9670;&nbsp;</a></span>CreateShape()</h2>
 
@@ -255,7 +289,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
 </div><div class="memdoc">
 
-<p>Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method UpdateMeshData() to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize. </p>
+<p>Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#abaeb22e0f390a218be5d9543138f52b9" title="This method is used due to the fact that the author implemented the level of detail in the mesh">UpdateMeshData()</a> to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize. </p>
 
 </div>
 </div>
@@ -276,6 +310,25 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 <p>Uses the Coroutine to wait a second between each quad generated. So the user can see the terrain being generated each frame. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the IEnumerator that is the amount of seconds to wait before the next Coroutine</dd></dl>
+
+</div>
+</div>
+<a id="a4ca64ff2f5c1b7f9073699905628e6dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca64ff2f5c1b7f9073699905628e6dd">&#9670;&nbsp;</a></span>Erode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.Erode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The erosion method searches for the script named <a class="el" href="class_assets_1_1_scripts_1_1_erosion.html">Erosion</a> attached to this object and it passes the reference to the erosion variable. Then it runes the Erode method present in Erosion.cs Creates the eroded shape for the mesh and to finish it updates the mesh </p>
 
 </div>
 </div>
@@ -349,6 +402,51 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Updates the Mesh every second. </p>
+
+</div>
+</div>
+<a id="a41a4e7a75db511109f7837f1f0fa376b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a4e7a75db511109f7837f1f0fa376b">&#9670;&nbsp;</a></span>UpdateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.UpdateMesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the current Mesh Sets the Mesh.vertices, triangles and uvs = to the ones generated in create <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#abaeb22e0f390a218be5d9543138f52b9" title="This method is used due to the fact that the author implemented the level of detail in the mesh">UpdateMeshData()</a> method. And to finish it calls the function RecaculateNormals() in the mesh. </p>
+
+</div>
+</div>
+<a id="abaeb22e0f390a218be5d9543138f52b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaeb22e0f390a218be5d9543138f52b9">&#9670;&nbsp;</a></span>UpdateMeshData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.UpdateMeshData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method is used due to the fact that the author implemented the level of detail in the mesh </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>How many vertices exist per line; current(MapSize/LevelOfDetail)</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

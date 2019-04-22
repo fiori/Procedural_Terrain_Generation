@@ -273,6 +273,12 @@ namespace Assets.Scripts
             }
 
         }
+
+        /// <summary>
+        /// Clears the current Mesh
+        /// Sets the Mesh.vertices, triangles and uvs = to the ones generated in create UpdateMeshData() method.
+        /// And to finish it calls the function RecaculateNormals() in the mesh.
+        /// </summary>
         public void UpdateMesh()
         {
             MyMesh.Clear();
@@ -282,6 +288,10 @@ namespace Assets.Scripts
             MyMesh.RecalculateNormals();
         }
 
+        /// <summary>
+        /// This method is used due to the fact that the author implemented the level of detail in the mesh
+        /// </summary>
+        /// <param name="x">How many vertices exist per line; current(MapSize/LevelOfDetail)</param>
         public void UpdateMeshData(int x)
         {
             _vertexIndex = 0;
@@ -292,6 +302,11 @@ namespace Assets.Scripts
             _triangles = new int[(x) * (x) * 6];
             _uvs = new Vector2[(x + 1) * (x + 1)];
         }
+
+        /// <summary>
+        /// This method creates two triangles making a quad.
+        /// </summary>
+        /// <param name="xMapSize">Vertices per line</param>
         void CreateQuad(int xMapSize)
         {
             //triangles[triangleIndex + 0] = vertIndex;
@@ -313,9 +328,17 @@ namespace Assets.Scripts
             _rowIndex++;
             _vertexIndex += 6;
         }
+
+        /// <summary>
+        /// The erosion method searches for the script named Erosion attached to this object
+        /// and it passes the reference to the erosion variable.
+        /// Then it runes the Erode method present in Erosion.cs
+        /// Creates the eroded shape for the mesh
+        /// and to finish it updates the mesh
+        /// </summary>
         public void Erode()
         {
-            _noiseMap = MapGeneration.GenerateNoiseMap(MapSize, NoiseScale, Lacunarity, Persistance, Octaves);
+            //_noiseMap = MapGeneration.GenerateNoiseMap(MapSize, NoiseScale, Lacunarity, Persistance, Octaves);
             erosion = FindObjectOfType<Erosion>();
             erosion.Erode(_noiseMap, MapSize, Iterations);
             CreateShape();

@@ -14,16 +14,13 @@ I\+Enumerator \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a533
 void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a132027f38358668e6f8c320b00ee9327}{Set\+Mesh\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Creates the mesh, sets the mesh filter to the mesh just created Generates the noise\+Map and stores it inside the \+\_\+noise\+Map Adds a main\+Texture or color using the component Mesh\+Renderer to the new mesh we created Initializes the vertices,triangles and uvs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_aebf4b5f0cb1285927d7c44a03e98d78c}{Create\+Shape}} ()
-\begin{DoxyCompactList}\small\item\em Checks for the level of details set by the user New variable named vertices per line is created (Map\+Size / Level\+Of\+Detail) Calls the method Update\+Mesh\+Data() to set the new data for the mesh Fills the value of the \+\_\+vertices\mbox{[}\mbox{]} \& \+\_\+uvs\mbox{[}\mbox{]} Creates each triangle until it reaches the end of the Map\+Size. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a41a4e7a75db511109f7837f1f0fa376b}\label{class_assets_1_1_scripts_1_1_mesh_generation_a41a4e7a75db511109f7837f1f0fa376b}} 
-void {\bfseries Update\+Mesh} ()
-\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}\label{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}} 
-void {\bfseries Update\+Mesh\+Data} (int x)
-\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a4ca64ff2f5c1b7f9073699905628e6dd}\label{class_assets_1_1_scripts_1_1_mesh_generation_a4ca64ff2f5c1b7f9073699905628e6dd}} 
-void {\bfseries Erode} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks for the level of details set by the user New variable named vertices per line is created (Map\+Size / Level\+Of\+Detail) Calls the method \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}{Update\+Mesh\+Data()}} to set the new data for the mesh Fills the value of the \+\_\+vertices\mbox{[}\mbox{]} \& \+\_\+uvs\mbox{[}\mbox{]} Creates each triangle until it reaches the end of the Map\+Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a41a4e7a75db511109f7837f1f0fa376b}{Update\+Mesh}} ()
+\begin{DoxyCompactList}\small\item\em Clears the current Mesh Sets the Mesh.\+vertices, triangles and uvs = to the ones generated in create \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}{Update\+Mesh\+Data()}} method. And to finish it calls the function Recaculate\+Normals() in the mesh. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}{Update\+Mesh\+Data}} (int x)
+\begin{DoxyCompactList}\small\item\em This method is used due to the fact that the author implemented the level of detail in the mesh \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a4ca64ff2f5c1b7f9073699905628e6dd}{Erode}} ()
+\begin{DoxyCompactList}\small\item\em The erosion method searches for the script named \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion}{Erosion}} attached to this object and it passes the reference to the erosion variable. Then it runes the Erode method present in Erosion.\+cs Creates the eroded shape for the mesh and to finish it updates the mesh \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,9 +78,8 @@ void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a41b690987228
 \begin{DoxyCompactList}\small\item\em Starts the Coroutine method, sets the value to the sliders and Adds a listener to each of the sliders to check for value change. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a4cb917bfef5c78eba6e24157eb187e4d}{Update}} ()
 \begin{DoxyCompactList}\small\item\em Updates the Mesh every second. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a62d43347495810972a55224a8ff7a7a1}\label{class_assets_1_1_scripts_1_1_mesh_generation_a62d43347495810972a55224a8ff7a7a1}} 
-void {\bfseries Create\+Quad} (int x\+Map\+Size)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a62d43347495810972a55224a8ff7a7a1}{Create\+Quad}} (int x\+Map\+Size)
+\begin{DoxyCompactList}\small\item\em This method creates two triangles making a quad. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -121,6 +117,21 @@ int \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_a1419d5c719c9d
 
 Sets the Mesh Data and add the singleton instance to this script. 
 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a62d43347495810972a55224a8ff7a7a1}\label{class_assets_1_1_scripts_1_1_mesh_generation_a62d43347495810972a55224a8ff7a7a1}} 
+\index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!CreateQuad@{CreateQuad}}
+\index{CreateQuad@{CreateQuad}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
+\subsubsection{\texorpdfstring{CreateQuad()}{CreateQuad()}}
+{\footnotesize\ttfamily void Assets.\+Scripts.\+Mesh\+Generation.\+Create\+Quad (\begin{DoxyParamCaption}\item[{int}]{x\+Map\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method creates two triangles making a quad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Map\+Size} & Vertices per line\\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_aebf4b5f0cb1285927d7c44a03e98d78c}\label{class_assets_1_1_scripts_1_1_mesh_generation_aebf4b5f0cb1285927d7c44a03e98d78c}} 
 \index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!CreateShape@{CreateShape}}
 \index{CreateShape@{CreateShape}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
@@ -129,7 +140,7 @@ Sets the Mesh Data and add the singleton instance to this script.
 
 
 
-Checks for the level of details set by the user New variable named vertices per line is created (Map\+Size / Level\+Of\+Detail) Calls the method Update\+Mesh\+Data() to set the new data for the mesh Fills the value of the \+\_\+vertices\mbox{[}\mbox{]} \& \+\_\+uvs\mbox{[}\mbox{]} Creates each triangle until it reaches the end of the Map\+Size. 
+Checks for the level of details set by the user New variable named vertices per line is created (Map\+Size / Level\+Of\+Detail) Calls the method \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}{Update\+Mesh\+Data()}} to set the new data for the mesh Fills the value of the \+\_\+vertices\mbox{[}\mbox{]} \& \+\_\+uvs\mbox{[}\mbox{]} Creates each triangle until it reaches the end of the Map\+Size. 
 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a533ee7b8be835fa3b6f6282e86fd9ec6}\label{class_assets_1_1_scripts_1_1_mesh_generation_a533ee7b8be835fa3b6f6282e86fd9ec6}} 
 \index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!CreateShapeCoroutine@{CreateShapeCoroutine}}
@@ -144,6 +155,16 @@ Uses the Coroutine to wait a second between each quad generated. So the user can
 \begin{DoxyReturn}{Returns}
 Returns the I\+Enumerator that is the amount of seconds to wait before the next Coroutine
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a4ca64ff2f5c1b7f9073699905628e6dd}\label{class_assets_1_1_scripts_1_1_mesh_generation_a4ca64ff2f5c1b7f9073699905628e6dd}} 
+\index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!Erode@{Erode}}
+\index{Erode@{Erode}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
+\subsubsection{\texorpdfstring{Erode()}{Erode()}}
+{\footnotesize\ttfamily void Assets.\+Scripts.\+Mesh\+Generation.\+Erode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The erosion method searches for the script named \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion}{Erosion}} attached to this object and it passes the reference to the erosion variable. Then it runes the Erode method present in Erosion.\+cs Creates the eroded shape for the mesh and to finish it updates the mesh 
+
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a132027f38358668e6f8c320b00ee9327}\label{class_assets_1_1_scripts_1_1_mesh_generation_a132027f38358668e6f8c320b00ee9327}} 
 \index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!SetMeshData@{SetMeshData}}
 \index{SetMeshData@{SetMeshData}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
@@ -174,6 +195,31 @@ Starts the Coroutine method, sets the value to the sliders and Adds a listener t
 
 Updates the Mesh every second. 
 
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_a41a4e7a75db511109f7837f1f0fa376b}\label{class_assets_1_1_scripts_1_1_mesh_generation_a41a4e7a75db511109f7837f1f0fa376b}} 
+\index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!UpdateMesh@{UpdateMesh}}
+\index{UpdateMesh@{UpdateMesh}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
+\subsubsection{\texorpdfstring{UpdateMesh()}{UpdateMesh()}}
+{\footnotesize\ttfamily void Assets.\+Scripts.\+Mesh\+Generation.\+Update\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the current Mesh Sets the Mesh.\+vertices, triangles and uvs = to the ones generated in create \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}{Update\+Mesh\+Data()}} method. And to finish it calls the function Recaculate\+Normals() in the mesh. 
+
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}\label{class_assets_1_1_scripts_1_1_mesh_generation_abaeb22e0f390a218be5d9543138f52b9}} 
+\index{Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}!UpdateMeshData@{UpdateMeshData}}
+\index{UpdateMeshData@{UpdateMeshData}!Assets.Scripts.MeshGeneration@{Assets.Scripts.MeshGeneration}}
+\subsubsection{\texorpdfstring{UpdateMeshData()}{UpdateMeshData()}}
+{\footnotesize\ttfamily void Assets.\+Scripts.\+Mesh\+Generation.\+Update\+Mesh\+Data (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+This method is used due to the fact that the author implemented the level of detail in the mesh 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & How many vertices exist per line; current(Map\+Size/\+Level\+Of\+Detail)\\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
