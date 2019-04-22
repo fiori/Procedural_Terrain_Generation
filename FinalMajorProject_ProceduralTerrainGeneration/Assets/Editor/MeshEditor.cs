@@ -15,7 +15,7 @@ namespace Assets.Editor
             {
                 if (mesh.AutoUpdate)
                 {
-                    MeshGeneration.instance = mesh;
+                    MeshGeneration.Instance = mesh;
                     mesh.SetMeshData();
                     mesh.CreateShape();
                     mesh.UpdateMesh();
@@ -24,7 +24,7 @@ namespace Assets.Editor
 
             if (GUILayout.Button("Generate"))
             {
-                MeshGeneration.instance = mesh;
+                MeshGeneration.Instance = mesh;
                 //WaterGeneration.CreateWater();
                 mesh.SetMeshData();
                 mesh.CreateShape();

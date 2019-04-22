@@ -20,13 +20,13 @@ namespace Assets.Scripts
         public static void CreateWater()
         {
             int lod = 17;
-            int verticesperLine = (MeshGeneration.instance.mapSize / lod);
+            int verticesperLine = (MeshGeneration.Instance.MapSize / lod);
             Vector3[] verticies = new Vector3[(verticesperLine + 1) * (verticesperLine + 1)];
             int verticeIndex = 0;
 
-            for (int z = 0; z < MeshGeneration.instance.mapSize; z+=lod)
+            for (int z = 0; z < MeshGeneration.Instance.MapSize; z+=lod)
             {
-                for (int x = 0; x < MeshGeneration.instance.mapSize; x+=lod)
+                for (int x = 0; x < MeshGeneration.Instance.MapSize; x+=lod)
                 {
                     int randomNumber = Random.Range(20, 60);
                     verticies[verticeIndex] = new Vector3(x, randomNumber, z);

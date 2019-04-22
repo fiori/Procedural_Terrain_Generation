@@ -85,14 +85,14 @@ Inheritance diagram for Assets.Scripts.MeshGeneration:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7c87c523ebe4c7a891a77ff9fb22779"><td class="memItemLeft" align="right" valign="top"><a id="ae7c87c523ebe4c7a891a77ff9fb22779"></a>
-IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><b>CreateShapeCouroutine</b> ()</td></tr>
-<tr class="separator:ae7c87c523ebe4c7a891a77ff9fb22779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132027f38358668e6f8c320b00ee9327"><td class="memItemLeft" align="right" valign="top"><a id="a132027f38358668e6f8c320b00ee9327"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMeshData</b> ()</td></tr>
+<tr class="memitem:a533ee7b8be835fa3b6f6282e86fd9ec6"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a533ee7b8be835fa3b6f6282e86fd9ec6">CreateShapeCoroutine</a> ()</td></tr>
+<tr class="memdesc:a533ee7b8be835fa3b6f6282e86fd9ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the Coroutine to wait a second between each quad generated. So the user can see the terrain being generated each frame.  <a href="#a533ee7b8be835fa3b6f6282e86fd9ec6">More...</a><br /></td></tr>
+<tr class="separator:a533ee7b8be835fa3b6f6282e86fd9ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132027f38358668e6f8c320b00ee9327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a132027f38358668e6f8c320b00ee9327">SetMeshData</a> ()</td></tr>
+<tr class="memdesc:a132027f38358668e6f8c320b00ee9327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the mesh, sets the mesh filter to the mesh just created Generates the noiseMap and stores it inside the _noiseMap Adds a mainTexture or color using the component MeshRenderer to the new mesh we created Initializes the vertices,triangles and uvs.  <a href="#a132027f38358668e6f8c320b00ee9327">More...</a><br /></td></tr>
 <tr class="separator:a132027f38358668e6f8c320b00ee9327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="memItemLeft" align="right" valign="top"><a id="aebf4b5f0cb1285927d7c44a03e98d78c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateShape</b> ()</td></tr>
+<tr class="memitem:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#aebf4b5f0cb1285927d7c44a03e98d78c">CreateShape</a> ()</td></tr>
+<tr class="memdesc:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method UpdateMeshData() to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize.  <a href="#aebf4b5f0cb1285927d7c44a03e98d78c">More...</a><br /></td></tr>
 <tr class="separator:aebf4b5f0cb1285927d7c44a03e98d78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41a4e7a75db511109f7837f1f0fa376b"><td class="memItemLeft" align="right" valign="top"><a id="a41a4e7a75db511109f7837f1f0fa376b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateMesh</b> ()</td></tr>
@@ -106,65 +106,76 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Erode</b> ()</td></tr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a49275ddbfd74305ea5a520e869192430"><td class="memItemLeft" align="right" valign="top"><a id="a49275ddbfd74305ea5a520e869192430"></a>
-Mesh&#160;</td><td class="memItemRight" valign="bottom"><b>mymesh</b></td></tr>
-<tr class="separator:a49275ddbfd74305ea5a520e869192430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26596b6ee02d4e1a561c9fa9301d98b3"><td class="memItemLeft" align="right" valign="top"><a id="a26596b6ee02d4e1a561c9fa9301d98b3"></a>
+Mesh&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a26596b6ee02d4e1a561c9fa9301d98b3">MyMesh</a></td></tr>
+<tr class="memdesc:a26596b6ee02d4e1a561c9fa9301d98b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mesh is an empty gameObject from UnityEngine nameSpace. <br /></td></tr>
+<tr class="separator:a26596b6ee02d4e1a561c9fa9301d98b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab609831d408b234a7999a66e7caa0b8"><td class="memItemLeft" align="right" valign="top"><a id="aab609831d408b234a7999a66e7caa0b8"></a>
-<a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a> []&#160;</td><td class="memItemRight" valign="bottom"><b>terrains</b></td></tr>
+<a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a> []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#aab609831d408b234a7999a66e7caa0b8">terrains</a></td></tr>
+<tr class="memdesc:aab609831d408b234a7999a66e7caa0b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a> Array, this array is used to define if the terrain is water,sand etc... <br /></td></tr>
 <tr class="separator:aab609831d408b234a7999a66e7caa0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3223f5033c58cd6a263028ffac7622a6"><td class="memItemLeft" align="right" valign="top"><a id="a3223f5033c58cd6a263028ffac7622a6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mapSize</b> = 255</td></tr>
-<tr class="separator:a3223f5033c58cd6a263028ffac7622a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5bab0bbdf58ab515b5436ab0ff78783"><td class="memItemLeft" align="right" valign="top"><a id="ab5bab0bbdf58ab515b5436ab0ff78783"></a>
+readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#ab5bab0bbdf58ab515b5436ab0ff78783">MapSize</a> = 255</td></tr>
+<tr class="memdesc:ab5bab0bbdf58ab515b5436ab0ff78783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Readonly map size set to 255. <br /></td></tr>
+<tr class="separator:ab5bab0bbdf58ab515b5436ab0ff78783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1867a959235c198871e5933c0aaf170b"><td class="memItemLeft" align="right" valign="top"><a id="a1867a959235c198871e5933c0aaf170b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a1867a959235c198871e5933c0aaf170b">NoiseScale</a> = 20.0f</td></tr>
+<tr class="memdesc:a1867a959235c198871e5933c0aaf170b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the Noise Map, the bigger the value, bigger the frequency of the noise giving a zoomed effect on the map. <br /></td></tr>
+<tr class="separator:a1867a959235c198871e5933c0aaf170b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b11bbcd0bdb8aa5a40aab130ad8568a"><td class="memItemLeft" align="right" valign="top"><a id="a9b11bbcd0bdb8aa5a40aab130ad8568a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>LevelOfDetail</b> = 0</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a9b11bbcd0bdb8aa5a40aab130ad8568a">LevelOfDetail</a> = 0</td></tr>
+<tr class="memdesc:a9b11bbcd0bdb8aa5a40aab130ad8568a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for reducing the level of detail of the mesh, the higher the level the less vertices the mesh is going to have. <br /></td></tr>
 <tr class="separator:a9b11bbcd0bdb8aa5a40aab130ad8568a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3535cfd3a218a8f10e9b600336fbb66"><td class="memItemLeft" align="right" valign="top"><a id="aa3535cfd3a218a8f10e9b600336fbb66"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>noiseScale</b> = 0.2f</td></tr>
-<tr class="separator:aa3535cfd3a218a8f10e9b600336fbb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c0dfe8b2d3f3c748aef20143a63065d"><td class="memItemLeft" align="right" valign="top"><a id="a8c0dfe8b2d3f3c748aef20143a63065d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>lacunarity</b> = 0.2f</td></tr>
-<tr class="separator:a8c0dfe8b2d3f3c748aef20143a63065d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac066773daeaaad3d8ac5f2d96311b1f5"><td class="memItemLeft" align="right" valign="top"><a id="ac066773daeaaad3d8ac5f2d96311b1f5"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>persistance</b> = 0.2f</td></tr>
-<tr class="separator:ac066773daeaaad3d8ac5f2d96311b1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb453b55c3d0274ec7588688ba6455f9"><td class="memItemLeft" align="right" valign="top"><a id="aeb453b55c3d0274ec7588688ba6455f9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> = 2</td></tr>
-<tr class="separator:aeb453b55c3d0274ec7588688ba6455f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a393d203a0929f89c544a146c1aa3ef59"><td class="memItemLeft" align="right" valign="top"><a id="a393d203a0929f89c544a146c1aa3ef59"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>terrainHeight</b> = 10</td></tr>
-<tr class="separator:a393d203a0929f89c544a146c1aa3ef59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4466d8c419c1faaf0b8ea3795bed32c"><td class="memItemLeft" align="right" valign="top"><a id="ab4466d8c419c1faaf0b8ea3795bed32c"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#ab4466d8c419c1faaf0b8ea3795bed32c">Lacunarity</a> = 3.00f</td></tr>
+<tr class="memdesc:ab4466d8c419c1faaf0b8ea3795bed32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the increase in frequency of a octave, the width of the wave. <br /></td></tr>
+<tr class="separator:ab4466d8c419c1faaf0b8ea3795bed32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5362f1f2349a17c23fedf79d591ea4"><td class="memItemLeft" align="right" valign="top"><a id="acf5362f1f2349a17c23fedf79d591ea4"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#acf5362f1f2349a17c23fedf79d591ea4">Persistance</a> = 0.3f</td></tr>
+<tr class="memdesc:acf5362f1f2349a17c23fedf79d591ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the increase in amplitude of a octave, the height of the wave. <br /></td></tr>
+<tr class="separator:acf5362f1f2349a17c23fedf79d591ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97778c77f402e6a70e11224da63b5697"><td class="memItemLeft" align="right" valign="top"><a id="a97778c77f402e6a70e11224da63b5697"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a97778c77f402e6a70e11224da63b5697">Octaves</a> = 6</td></tr>
+<tr class="memdesc:a97778c77f402e6a70e11224da63b5697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Octave is the number of level of detail for the Perlin noise. <br /></td></tr>
+<tr class="separator:a97778c77f402e6a70e11224da63b5697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20721d365a32b079f8731c4a60452265"><td class="memItemLeft" align="right" valign="top"><a id="a20721d365a32b079f8731c4a60452265"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a20721d365a32b079f8731c4a60452265">TerrainHeight</a> = 25.0f</td></tr>
+<tr class="memdesc:a20721d365a32b079f8731c4a60452265"><td class="mdescLeft">&#160;</td><td class="mdescRight">This value multiplies the noiseMap value to a bigger and noticeable value. The value of the multiplication then is set to the Y coordinate of the vertex in the mesh. <br /></td></tr>
+<tr class="separator:a20721d365a32b079f8731c4a60452265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6facd09cd95702c8bb30274eca86887"><td class="memItemLeft" align="right" valign="top"><a id="ac6facd09cd95702c8bb30274eca86887"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>AutoUpdate</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#ac6facd09cd95702c8bb30274eca86887">AutoUpdate</a> = false</td></tr>
+<tr class="memdesc:ac6facd09cd95702c8bb30274eca86887"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean used in the MeshEditor, when this value is true, it updates the mesh every time a change is made. <br /></td></tr>
 <tr class="separator:ac6facd09cd95702c8bb30274eca86887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fd8c8a5fa67c20147628540e6d9bbdc"><td class="memItemLeft" align="right" valign="top"><a id="a1fd8c8a5fa67c20147628540e6d9bbdc"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>perlinNoise</b> = 0f</td></tr>
-<tr class="separator:a1fd8c8a5fa67c20147628540e6d9bbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d926e041560c3e72d37fc44896abf9e"><td class="memItemLeft" align="right" valign="top"><a id="a3d926e041560c3e72d37fc44896abf9e"></a>
-AnimationCurve&#160;</td><td class="memItemRight" valign="bottom"><b>heightCurve</b></td></tr>
-<tr class="separator:a3d926e041560c3e72d37fc44896abf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8644c5bdddab26e448f9bd2fd56935c"><td class="memItemLeft" align="right" valign="top"><a id="ac8644c5bdddab26e448f9bd2fd56935c"></a>
-Slider []&#160;</td><td class="memItemRight" valign="bottom"><b>sliders</b></td></tr>
-<tr class="separator:ac8644c5bdddab26e448f9bd2fd56935c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68de742ffe15b4aff6f8831b387c8cbb"><td class="memItemLeft" align="right" valign="top"><a id="a68de742ffe15b4aff6f8831b387c8cbb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>iterations</b> = 30</td></tr>
-<tr class="separator:a68de742ffe15b4aff6f8831b387c8cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee5573ae0fc97b319d40c3944cda198"><td class="memItemLeft" align="right" valign="top"><a id="a3ee5573ae0fc97b319d40c3944cda198"></a>
+AnimationCurve&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a3ee5573ae0fc97b319d40c3944cda198">HeightCurve</a></td></tr>
+<tr class="memdesc:a3ee5573ae0fc97b319d40c3944cda198"><td class="mdescLeft">&#160;</td><td class="mdescRight">This AnimationCurve is used when setting the Y value to the vertices <a href="https://docs.unity3d.com/Manual/animeditor-AnimationCurves.html">https://docs.unity3d.com/Manual/animeditor-AnimationCurves.html</a>. <br /></td></tr>
+<tr class="separator:a3ee5573ae0fc97b319d40c3944cda198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c24986338908bad83bb97cfe269c334"><td class="memItemLeft" align="right" valign="top"><a id="a1c24986338908bad83bb97cfe269c334"></a>
+Slider []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a1c24986338908bad83bb97cfe269c334">Sliders</a></td></tr>
+<tr class="memdesc:a1c24986338908bad83bb97cfe269c334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slider[] comes from UnityEngine.UI and is a part of the User Interface of the program, this sliders are responsible to change the terrain generation. <br /></td></tr>
+<tr class="separator:a1c24986338908bad83bb97cfe269c334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d97bc7125a92c446af48aaae656cdd"><td class="memItemLeft" align="right" valign="top"><a id="ad9d97bc7125a92c446af48aaae656cdd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#ad9d97bc7125a92c446af48aaae656cdd">Iterations</a> = 150000</td></tr>
+<tr class="memdesc:ad9d97bc7125a92c446af48aaae656cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many water particles to be generated to create erosion. <br /></td></tr>
+<tr class="separator:ad9d97bc7125a92c446af48aaae656cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a343439489fdbc13282f26dfea80f9309"><td class="memItemLeft" align="right" valign="top"><a id="a343439489fdbc13282f26dfea80f9309"></a>
-static <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html">MeshGeneration</a>&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b></td></tr>
-<tr class="separator:a343439489fdbc13282f26dfea80f9309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb4b46217e97f7f7e8ca3aafdb8e72cd"><td class="memItemLeft" align="right" valign="top"><a id="adb4b46217e97f7f7e8ca3aafdb8e72cd"></a>
+static <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html">MeshGeneration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#adb4b46217e97f7f7e8ca3aafdb8e72cd">Instance</a></td></tr>
+<tr class="memdesc:adb4b46217e97f7f7e8ca3aafdb8e72cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a design pattern named singleton. Singleton allows the access for this class in all the project solution. <br /></td></tr>
+<tr class="separator:adb4b46217e97f7f7e8ca3aafdb8e72cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a30849dcee23c658732c99ad36d84dc58"><td class="memItemLeft" align="right" valign="top"><a id="a30849dcee23c658732c99ad36d84dc58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
+<tr class="memitem:a30849dcee23c658732c99ad36d84dc58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a30849dcee23c658732c99ad36d84dc58">Awake</a> ()</td></tr>
+<tr class="memdesc:a30849dcee23c658732c99ad36d84dc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Mesh Data and add the singleton instance to this script.  <a href="#a30849dcee23c658732c99ad36d84dc58">More...</a><br /></td></tr>
 <tr class="separator:a30849dcee23c658732c99ad36d84dc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b690987228c88da57a68df85864fb8"><td class="memItemLeft" align="right" valign="top"><a id="a41b690987228c88da57a68df85864fb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="memitem:a41b690987228c88da57a68df85864fb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a41b690987228c88da57a68df85864fb8">Start</a> ()</td></tr>
+<tr class="memdesc:a41b690987228c88da57a68df85864fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the Coroutine method, sets the value to the sliders and Adds a listener to each of the sliders to check for value change.  <a href="#a41b690987228c88da57a68df85864fb8">More...</a><br /></td></tr>
 <tr class="separator:a41b690987228c88da57a68df85864fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb917bfef5c78eba6e24157eb187e4d"><td class="memItemLeft" align="right" valign="top"><a id="a4cb917bfef5c78eba6e24157eb187e4d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memitem:a4cb917bfef5c78eba6e24157eb187e4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a4cb917bfef5c78eba6e24157eb187e4d">Update</a> ()</td></tr>
+<tr class="memdesc:a4cb917bfef5c78eba6e24157eb187e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Mesh every second.  <a href="#a4cb917bfef5c78eba6e24157eb187e4d">More...</a><br /></td></tr>
 <tr class="separator:a4cb917bfef5c78eba6e24157eb187e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62d43347495810972a55224a8ff7a7a1"><td class="memItemLeft" align="right" valign="top"><a id="a62d43347495810972a55224a8ff7a7a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateQuad</b> (int xMapSize)</td></tr>
@@ -172,28 +183,175 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateQuad</b> (int x
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a799f950228628cccb1aa8833e8e697e5"><td class="memItemLeft" align="right" valign="top"><a id="a799f950228628cccb1aa8833e8e697e5"></a>
-Vector3 []&#160;</td><td class="memItemRight" valign="bottom"><b>vertices</b></td></tr>
-<tr class="separator:a799f950228628cccb1aa8833e8e697e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc484817c8bdafc772df0e3450b6a6e"><td class="memItemLeft" align="right" valign="top"><a id="a3bc484817c8bdafc772df0e3450b6a6e"></a>
-Vector2 []&#160;</td><td class="memItemRight" valign="bottom"><b>uvs</b></td></tr>
-<tr class="separator:a3bc484817c8bdafc772df0e3450b6a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc68d6d74ad0eaa72a23fb8f6e97f941"><td class="memItemLeft" align="right" valign="top"><a id="acc68d6d74ad0eaa72a23fb8f6e97f941"></a>
-int []&#160;</td><td class="memItemRight" valign="bottom"><b>triangles</b></td></tr>
-<tr class="separator:acc68d6d74ad0eaa72a23fb8f6e97f941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47741dd4c95c3c4b5ed92e0f739ecf1f"><td class="memItemLeft" align="right" valign="top"><a id="a47741dd4c95c3c4b5ed92e0f739ecf1f"></a>
-float []&#160;</td><td class="memItemRight" valign="bottom"><b>noiseMap</b></td></tr>
-<tr class="separator:a47741dd4c95c3c4b5ed92e0f739ecf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9558854a993376fc2344987f9eb639"><td class="memItemLeft" align="right" valign="top"><a id="aeb9558854a993376fc2344987f9eb639"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>triangleIndex</b> = 0</td></tr>
-<tr class="separator:aeb9558854a993376fc2344987f9eb639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f4c6f120f9e53b59b21f7c2629f100"><td class="memItemLeft" align="right" valign="top"><a id="a28f4c6f120f9e53b59b21f7c2629f100"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>vertIndex</b> = 0</td></tr>
-<tr class="separator:a28f4c6f120f9e53b59b21f7c2629f100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af896f8b73b6976a3624d780592fe1ac2"><td class="memItemLeft" align="right" valign="top"><a id="af896f8b73b6976a3624d780592fe1ac2"></a>
+Vector3 []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#af896f8b73b6976a3624d780592fe1ac2">_vertices</a></td></tr>
+<tr class="memdesc:af896f8b73b6976a3624d780592fe1ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity of vertices present on the mesh. <br /></td></tr>
+<tr class="separator:af896f8b73b6976a3624d780592fe1ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1826b6ee3760ef6d95b6f6527116393a"><td class="memItemLeft" align="right" valign="top"><a id="a1826b6ee3760ef6d95b6f6527116393a"></a>
+Vector2 []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a1826b6ee3760ef6d95b6f6527116393a">_uvs</a></td></tr>
+<tr class="memdesc:a1826b6ee3760ef6d95b6f6527116393a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mesh UVS go from [0 - 1] in mesh so to get the right UVS currentMapPosition / mapSize. <br /></td></tr>
+<tr class="separator:a1826b6ee3760ef6d95b6f6527116393a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26988763ce55032ec26336b235de7c9f"><td class="memItemLeft" align="right" valign="top"><a id="a26988763ce55032ec26336b235de7c9f"></a>
+int []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a26988763ce55032ec26336b235de7c9f">_triangles</a></td></tr>
+<tr class="memdesc:a26988763ce55032ec26336b235de7c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each triangle is composed by 3 vertices where each quad is composed by 6 vertices. <br /></td></tr>
+<tr class="separator:a26988763ce55032ec26336b235de7c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af06a25c928d4a494940cd47bf69aef"><td class="memItemLeft" align="right" valign="top"><a id="a7af06a25c928d4a494940cd47bf69aef"></a>
+float []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a7af06a25c928d4a494940cd47bf69aef">_noiseMap</a></td></tr>
+<tr class="memdesc:a7af06a25c928d4a494940cd47bf69aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable is initialized in the method <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a132027f38358668e6f8c320b00ee9327" title="Creates the mesh, sets the mesh filter to the mesh just created Generates the noiseMap and stores it ...">SetMeshData()</a> and gets the value from <a class="el" href="class_assets_1_1_scripts_1_1_map_generation.html#a1b9a4afede5e30c156b0a9d848c9182a" title="Generates a noiseMap through the PerlinNoise class">MapGeneration.GenerateNoiseMap()</a> <br /></td></tr>
+<tr class="separator:a7af06a25c928d4a494940cd47bf69aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bd3f3971f61a4aac4a03c65db633e2"><td class="memItemLeft" align="right" valign="top"><a id="aa2bd3f3971f61a4aac4a03c65db633e2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#aa2bd3f3971f61a4aac4a03c65db633e2">_vertexIndex</a></td></tr>
+<tr class="memdesc:aa2bd3f3971f61a4aac4a03c65db633e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows how many triangles are present in the mesh. <br /></td></tr>
+<tr class="separator:aa2bd3f3971f61a4aac4a03c65db633e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1419d5c719c9d53aa7c4d5e8fa7ac2a2"><td class="memItemLeft" align="right" valign="top"><a id="a1419d5c719c9d53aa7c4d5e8fa7ac2a2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a1419d5c719c9d53aa7c4d5e8fa7ac2a2">_rowIndex</a></td></tr>
+<tr class="memdesc:a1419d5c719c9d53aa7c4d5e8fa7ac2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable is used to count in what Y row the triangle is going to be drawn. <br /></td></tr>
+<tr class="separator:a1419d5c719c9d53aa7c4d5e8fa7ac2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a000e9fde649beba061d38980768af3fe"><td class="memItemLeft" align="right" valign="top"><a id="a000e9fde649beba061d38980768af3fe"></a>
-<a class="el" href="class_assets_1_1_scripts_1_1_erosion.html">Erosion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>erosion</b></td></tr>
+<a class="el" href="class_assets_1_1_scripts_1_1_erosion.html">Erosion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html#a000e9fde649beba061d38980768af3fe">erosion</a></td></tr>
+<tr class="memdesc:a000e9fde649beba061d38980768af3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initialization for this variable is made by using FindObjectOfType&lt;Erosion&gt; and add the reference from the attached script to this variable. <br /></td></tr>
 <tr class="separator:a000e9fde649beba061d38980768af3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a30849dcee23c658732c99ad36d84dc58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30849dcee23c658732c99ad36d84dc58">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the Mesh Data and add the singleton instance to this script. </p>
+
+</div>
+</div>
+<a id="aebf4b5f0cb1285927d7c44a03e98d78c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebf4b5f0cb1285927d7c44a03e98d78c">&#9670;&nbsp;</a></span>CreateShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.CreateShape </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks for the level of details set by the user New variable named vertices per line is created (MapSize / LevelOfDetail) Calls the method UpdateMeshData() to set the new data for the mesh Fills the value of the _vertices[] &amp; _uvs[] Creates each triangle until it reaches the end of the MapSize. </p>
+
+</div>
+</div>
+<a id="a533ee7b8be835fa3b6f6282e86fd9ec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533ee7b8be835fa3b6f6282e86fd9ec6">&#9670;&nbsp;</a></span>CreateShapeCoroutine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator Assets.Scripts.MeshGeneration.CreateShapeCoroutine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uses the Coroutine to wait a second between each quad generated. So the user can see the terrain being generated each frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the IEnumerator that is the amount of seconds to wait before the next Coroutine</dd></dl>
+
+</div>
+</div>
+<a id="a132027f38358668e6f8c320b00ee9327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132027f38358668e6f8c320b00ee9327">&#9670;&nbsp;</a></span>SetMeshData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.SetMeshData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the mesh, sets the mesh filter to the mesh just created Generates the noiseMap and stores it inside the _noiseMap Adds a mainTexture or color using the component MeshRenderer to the new mesh we created Initializes the vertices,triangles and uvs. </p>
+
+</div>
+</div>
+<a id="a41b690987228c88da57a68df85864fb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b690987228c88da57a68df85864fb8">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the Coroutine method, sets the value to the sliders and Adds a listener to each of the sliders to check for value change. </p>
+
+</div>
+</div>
+<a id="a4cb917bfef5c78eba6e24157eb187e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb917bfef5c78eba6e24157eb187e4d">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Assets.Scripts.MeshGeneration.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the Mesh every second. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>P:/Unity/FMP/Fmp/FinalMajorProject_ProceduralTerrainGeneration/Assets/Scripts/MeshGeneration.cs</li>
 </ul>

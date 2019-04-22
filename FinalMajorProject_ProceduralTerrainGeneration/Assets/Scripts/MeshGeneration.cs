@@ -16,67 +16,107 @@ namespace Assets.Scripts
         public Color colour;
     }
 
-    [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshFilter),typeof(Erosion))]
     public class MeshGeneration : MonoBehaviour
     {
-        public Mesh mymesh;
+        //////////////////////////////////////////////////////////////////////////////////
+        //Private Variables
+        ///Quantity of vertices present on the mesh 
+        private Vector3[] _vertices;
+
+        ///The mesh UVS go from [0 - 1] in mesh so to get the right UVS currentMapPosition / mapSize
+        private Vector2[] _uvs;
+
+        ///Each triangle is composed by 3 vertices where each quad is composed by 6 vertices 
+        private int[] _triangles;
+
+        ///This variable is initialized in the method SetMeshData() and gets the value from MapGeneration.GenerateNoiseMap()
+        private float[] _noiseMap;
+
+        ///Shows how many triangles are present in the mesh.
+        [SerializeField] private int _vertexIndex;
+
+        ///This variable is used to count in what Y row the triangle is going to be drawn.  
+        private int _rowIndex;
+
+        ///The initialization for this variable is made by using FindObjectOfType<Erosion> and add the reference from the attached script to this variable.  
+        private Erosion erosion;
+        
+        //////////////////////////////////////////////////////////////////////////////////
+        //Public Variables
+        /// Mesh is an empty gameObject from UnityEngine nameSpace
+        public Mesh MyMesh;
+
+        ///TerrainType Array, this array is used to define if the terrain is water,sand etc...
         public TerrainType[] terrains;
 
-        Vector3[] vertices;
-        Vector2[] uvs;
-        int[] triangles;
+        /// Readonly map size set to 255 
+        public readonly int MapSize = 255;
 
-        public int mapSize = 255;
+        /// Size of the Noise Map, the bigger the value, bigger the frequency of the noise giving a zoomed effect on the map.
+        public float NoiseScale = 20.0f;
 
-        [Range(0,4)]
-        public int LevelOfDetail = 0;
+        /// Used for reducing the level of detail of the mesh, the higher the level the less vertices the mesh is going to have
+        [Range(0,4)] public int LevelOfDetail = 0;
 
-        public float noiseScale = 0.2f;
-        //Controls increase in frequency of octaves
-        [Range(0, 5)] public float lacunarity = 0.2f;
+        ///Controls the increase in frequency of a octave, the width of the wave
+        [Range(0, 5)] public float Lacunarity = 3.00f;
 
-        [Range(0, 1)] public float persistance = 0.2f;
+        ///Controls the increase in amplitude of a octave, the height of the wave
+        [Range(0, 1)] public float Persistance = 0.3f;
 
-        [Range(1,10)] public int octaves = 2;
+        ///Octave is the number of level of detail for the Perlin noise
+        [Range(1,10)] public int Octaves = 6;
 
-        [Range(1, 50)] public float terrainHeight = 10;
+        ///This value multiplies the noiseMap value to a bigger and noticeable value. The value of the multiplication then is set to the Y coordinate of the vertex in the mesh.
+        [Range(1, 50)] public float TerrainHeight = 25.0f;
+        
+        ///A boolean used in the MeshEditor, when this value is true, it updates the mesh every time a change is made
         public bool AutoUpdate = false;
 
-        public float perlinNoise = 0f;
-        public AnimationCurve heightCurve;
-        private float[] noiseMap;
+        ///This AnimationCurve is used when setting the Y value to the vertices https://docs.unity3d.com/Manual/animeditor-AnimationCurves.html
+        public AnimationCurve HeightCurve;
 
+        ///Slider[] comes from UnityEngine.UI and is a part of the User Interface of the program, this sliders are responsible to change the terrain generation.  
+        public Slider[] Sliders;
 
-        [SerializeField] private int triangleIndex = 0;
+        ///This is a design pattern named singleton. Singleton allows the access for this class in all the project solution.  
+        public static MeshGeneration Instance;
 
-        private int vertIndex = 0;
+        ///How many water particles to be generated to create erosion. 
+        public int Iterations = 150000;
 
-        //Sliders
-        public Slider[] sliders;
-
-        //SingleTon
-        public static MeshGeneration instance;
-
-        private Erosion erosion;
-
-        public int iterations = 30;
-
+        /// <summary>
+        /// Sets the Mesh Data and add the singleton instance to this script.
+        /// </summary>
         void Awake()
         {
             SetMeshData();
-            instance = this;
+            Instance = this;
         }
 
-        // Start is called before the first frame update
+        /// <summary>
+        /// Starts the Coroutine method, sets the value to the sliders and Adds a listener to each of the sliders to check for value change.
+        /// </summary>
         void Start()
         {
-            StartCoroutine(CreateShapeCouroutine());
-            sliders[0].onValueChanged.AddListener(delegate { lacunarity = sliders[0].value;});
-            sliders[1].onValueChanged.AddListener(delegate { persistance = sliders[1].value;});
-            sliders[2].onValueChanged.AddListener(delegate { octaves = (int)sliders[2].value;});
-            sliders[3].onValueChanged.AddListener(delegate { terrainHeight = sliders[3].value;});
+            StartCoroutine(CreateShapeCoroutine());
+            Sliders[0].value = Lacunarity;
+            Sliders[1].value = Persistance;
+            Sliders[2].value = Octaves;
+            Sliders[3].value = TerrainHeight;
+            Sliders[0].onValueChanged.AddListener(delegate { Lacunarity = Sliders[0].value;});
+            Sliders[1].onValueChanged.AddListener(delegate { Persistance = Sliders[1].value;});
+            Sliders[2].onValueChanged.AddListener(delegate { Octaves = (int)Sliders[2].value;});
+            Sliders[3].onValueChanged.AddListener(delegate { TerrainHeight = Sliders[3].value;});
         }
-        public IEnumerator CreateShapeCouroutine()
+
+        /// <summary>
+        /// Uses the Coroutine to wait a second between each quad generated.
+        /// So the user can see the terrain being generated each frame.
+        /// </summary>
+        /// <returns>Returns the IEnumerator that is the amount of seconds to wait before the next Coroutine</returns>
+        public IEnumerator CreateShapeCoroutine()
         {
             ////triangles = new int[(mapSize - 1) * (mapSize - 1) * 6];
 
@@ -100,12 +140,12 @@ namespace Assets.Scripts
 
             int verticesIndex = 0;
 
-            for (int z = 0; z <= mapSize; z++)
+            for (int z = 0; z <= MapSize; z++)
             {
-                for (int x = 0; x <= mapSize; x++)
+                for (int x = 0; x <= MapSize; x++)
                 {
-                    vertices[verticesIndex] = new Vector3(x, noiseMap[z*mapSize + x] * terrainHeight, z);
-                    uvs[verticesIndex] = new Vector2(x / (float)mapSize, z / (float)mapSize);
+                    _vertices[verticesIndex] = new Vector3(x, _noiseMap[z*MapSize + x] * TerrainHeight, z);
+                    _uvs[verticesIndex] = new Vector2(x / (float)MapSize, z / (float)MapSize);
                     verticesIndex++;
                 }
             }
@@ -118,42 +158,59 @@ namespace Assets.Scripts
 
             //}
 
-            for (int z = 0; z < mapSize; z++)
+            for (int z = 0; z < MapSize; z++)
             {
-                for (int x = 0; x < mapSize; x++)
+                for (int x = 0; x < MapSize; x++)
                 {
-                    if (triangleIndex < triangles.Length)
+                    if (_vertexIndex < _triangles.Length)
                     {
-                        CreateQuad(mapSize);
+                        CreateQuad(MapSize);
                         yield return new WaitForSeconds(0.00001f);
                     }
                 }
-                vertIndex++;
+                _rowIndex++;
             }
         }
+
+        /// <summary>
+        /// Updates the Mesh every second.
+        /// </summary>
         void Update()
         {
             UpdateMesh();
         }
 
-
+        /// <summary>
+        /// Creates the mesh, sets the mesh filter to the mesh just created
+        /// Generates the noiseMap and stores it inside the _noiseMap
+        /// Adds a mainTexture or color using the component MeshRenderer to the new mesh we created
+        /// Initializes the vertices,triangles and uvs.
+        /// </summary>
         public void SetMeshData()
         {
-            mymesh = new Mesh();
-            GetComponent<MeshFilter>().mesh = mymesh;
-            triangleIndex = 0;
-            vertIndex = 0;
-            noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
+            MyMesh = new Mesh();
+            GetComponent<MeshFilter>().mesh = MyMesh;
+            _vertexIndex = 0;
+            _rowIndex = 0;
+            _noiseMap = MapGeneration.GenerateNoiseMap(MapSize, NoiseScale, Lacunarity, Persistance, Octaves);
             GetComponent<MeshRenderer>().sharedMaterial.mainTexture = null;
             //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, terrains, noiseMap);
 
             GetComponent<MeshRenderer>().sharedMaterial.color = Color.gray;
             //Fix: in the vertices I had to increment mapSize + 1 for each
             //10 Square and 11 vertices!
-            vertices = new Vector3[(mapSize + 1) * (mapSize + 1)];
-            triangles = new int[(mapSize) * (mapSize) * 6];
-            uvs = new Vector2[(mapSize + 1) * (mapSize + 1)];
+            _vertices = new Vector3[(MapSize + 1) * (MapSize + 1)];
+            _triangles = new int[(MapSize) * (MapSize) * 6];
+            _uvs = new Vector2[(MapSize + 1) * (MapSize + 1)];
         }
+
+        /// <summary>
+        /// Checks for the level of details set by the user
+        /// New variable named vertices per line is created (MapSize / LevelOfDetail)
+        /// Calls the method UpdateMeshData() to set the new data for the mesh
+        /// Fills the value of the _vertices[] & _uvs[]
+        /// Creates each triangle until it reaches the end of the MapSize.
+        /// </summary>
         public void CreateShape()
         {
             //triangles = new int[(mapSize - 1) * (mapSize - 1) * 6];
@@ -179,17 +236,17 @@ namespace Assets.Scripts
             }
 
 
-            int verticesperline = (mapSize / lod);
+            int verticesPerLine = (MapSize / lod);
             //Sets the data for the Mesh, Vertices and Triangles
-            UpdateMeshData(verticesperline);
+            UpdateMeshData(verticesPerLine);
             int verticesIndex = 0;
 
-            for (int y = 0; y <= mapSize; y+= lod)
+            for (int y = 0; y <= MapSize; y+= lod)
             {
-                for (int x = 0; x <= mapSize; x+= lod)
+                for (int x = 0; x <= MapSize; x+= lod)
                 {
-                    vertices[verticesIndex] = new Vector3(x, heightCurve.Evaluate(noiseMap[y * mapSize + x]) * terrainHeight, y);
-                    uvs[verticesIndex] = new Vector2(x/(float)mapSize, y/(float)mapSize);
+                    _vertices[verticesIndex] = new Vector3(x, HeightCurve.Evaluate(_noiseMap[y * MapSize + x]) * TerrainHeight, y);
+                    _uvs[verticesIndex] = new Vector2(x/(float)MapSize, y/(float)MapSize);
                     verticesIndex++;
                 }
             }
@@ -202,38 +259,38 @@ namespace Assets.Scripts
 
             //}
 
-            for (int z = 0; z < mapSize; z+= lod)
+            for (int z = 0; z < MapSize; z+= lod)
             {
-                for (int x = 0; x < mapSize; x+= lod)
+                for (int x = 0; x < MapSize; x+= lod)
                 {
-                    if (triangleIndex < triangles.Length)
+                    if (_vertexIndex < _triangles.Length)
                     {
-                        CreateQuad(verticesperline);
+                        CreateQuad(verticesPerLine);
                     }
                 }
 
-                vertIndex++;
+                _rowIndex++;
             }
 
         }
         public void UpdateMesh()
         {
-            mymesh.Clear();
-            mymesh.vertices = vertices;
-            mymesh.triangles = triangles;
-            mymesh.uv = uvs;
-            mymesh.RecalculateNormals();
+            MyMesh.Clear();
+            MyMesh.vertices = _vertices;
+            MyMesh.triangles = _triangles;
+            MyMesh.uv = _uvs;
+            MyMesh.RecalculateNormals();
         }
 
         public void UpdateMeshData(int x)
         {
-            triangleIndex = 0;
-            vertIndex = 0;
+            _vertexIndex = 0;
+            _rowIndex = 0;
             //Fix: in the vertices I had to increment mapSize + 1 for each
             //10 Square and 11 vertices!
-            vertices = new Vector3[(x + 1) * (x + 1)];
-            triangles = new int[(x) * (x) * 6];
-            uvs = new Vector2[(x + 1) * (x + 1)];
+            _vertices = new Vector3[(x + 1) * (x + 1)];
+            _triangles = new int[(x) * (x) * 6];
+            _uvs = new Vector2[(x + 1) * (x + 1)];
         }
         void CreateQuad(int xMapSize)
         {
@@ -245,22 +302,22 @@ namespace Assets.Scripts
             //triangles[triangleIndex + 4] = vertIndex + mapSize;
             //triangles[triangleIndex + 5] = vertIndex + mapSize + 1;
 
-            triangles[triangleIndex + 0] = vertIndex;
-            triangles[triangleIndex + 1] = vertIndex + xMapSize + 1;
-            triangles[triangleIndex + 2] = vertIndex + 1;
+            _triangles[_vertexIndex + 0] = _rowIndex;
+            _triangles[_vertexIndex + 1] = _rowIndex + xMapSize + 1;
+            _triangles[_vertexIndex + 2] = _rowIndex + 1;
 
-            triangles[triangleIndex + 3] = vertIndex + 1;
-            triangles[triangleIndex + 4] = vertIndex + xMapSize + 1;
-            triangles[triangleIndex + 5] = vertIndex + xMapSize + 2;
+            _triangles[_vertexIndex + 3] = _rowIndex + 1;
+            _triangles[_vertexIndex + 4] = _rowIndex + xMapSize + 1;
+            _triangles[_vertexIndex + 5] = _rowIndex + xMapSize + 2;
 
-            vertIndex++;
-            triangleIndex += 6;
+            _rowIndex++;
+            _vertexIndex += 6;
         }
         public void Erode()
         {
-            noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
+            _noiseMap = MapGeneration.GenerateNoiseMap(MapSize, NoiseScale, Lacunarity, Persistance, Octaves);
             erosion = FindObjectOfType<Erosion>();
-            erosion.Erode(noiseMap, mapSize, iterations);
+            erosion.Erode(_noiseMap, MapSize, Iterations);
             CreateShape();
             UpdateMesh();
         }
