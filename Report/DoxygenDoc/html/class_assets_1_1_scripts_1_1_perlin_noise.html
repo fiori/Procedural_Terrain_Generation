@@ -68,6 +68,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_assets_1_1_scripts_1_1_perlin_noise-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -77,20 +78,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abb0f38b2065f2bf92baa8e33b364fad3"><td class="memItemLeft" align="right" valign="top"><a id="abb0f38b2065f2bf92baa8e33b364fad3"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>OctavePerlin</b> (float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)</td></tr>
-<tr class="separator:abb0f38b2065f2bf92baa8e33b364fad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126a47fd87c2c24d18a906ac6c60c1a4"><td class="memItemLeft" align="right" valign="top"><a id="a126a47fd87c2c24d18a906ac6c60c1a4"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>Perlin</b> (float x, float y, float z)</td></tr>
+<tr class="memitem:a126a47fd87c2c24d18a906ac6c60c1a4"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#a126a47fd87c2c24d18a906ac6c60c1a4">Perlin</a> (float x, float y, float z)</td></tr>
+<tr class="memdesc:a126a47fd87c2c24d18a906ac6c60c1a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 3D Perlin Noise method  <a href="#a126a47fd87c2c24d18a906ac6c60c1a4">More...</a><br /></td></tr>
 <tr class="separator:a126a47fd87c2c24d18a906ac6c60c1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf602f5adb436883f20184ec6020e8b7"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#acf602f5adb436883f20184ec6020e8b7">grad</a> (int hash, float x, float y, float z)</td></tr>
-<tr class="memdesc:acf602f5adb436883f20184ec6020e8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Picks a random vector from the following 12 vectors: (1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0), (1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1), (0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)  <a href="#acf602f5adb436883f20184ec6020e8b7">More...</a><br /></td></tr>
+<tr class="memdesc:acf602f5adb436883f20184ec6020e8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Easy and alternative way to write the gradient function Source: <a href="http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html">http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html</a> Picks a random vector from the following 12 vectors: (1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0), (1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1), (0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1)  <a href="#acf602f5adb436883f20184ec6020e8b7">More...</a><br /></td></tr>
 <tr class="separator:acf602f5adb436883f20184ec6020e8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a9585c89676dbed37137fc71b11fec7"><td class="memItemLeft" align="right" valign="top"><a id="a0a9585c89676dbed37137fc71b11fec7"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>lerp</b> (float firstDouble, float secondDouble, float by)</td></tr>
+<tr class="memitem:a0a9585c89676dbed37137fc71b11fec7"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#a0a9585c89676dbed37137fc71b11fec7">lerp</a> (float firstDouble, float secondDouble, float by)</td></tr>
+<tr class="memdesc:a0a9585c89676dbed37137fc71b11fec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation  <a href="#a0a9585c89676dbed37137fc71b11fec7">More...</a><br /></td></tr>
 <tr class="separator:a0a9585c89676dbed37137fc71b11fec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6814246a684b081178e01c960a4edd96"><td class="memItemLeft" align="right" valign="top"><a id="a6814246a684b081178e01c960a4edd96"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>fade</b> (float t)</td></tr>
+<tr class="memitem:a6814246a684b081178e01c960a4edd96"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#a6814246a684b081178e01c960a4edd96">fade</a> (float t)</td></tr>
+<tr class="memdesc:a6814246a684b081178e01c960a4edd96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fade function is responsible for easing the curve in the algorithm, this is applied to the U, V and W values creating more gradual changes as the values gets closer to integral coordinates.  <a href="#a6814246a684b081178e01c960a4edd96">More...</a><br /></td></tr>
 <tr class="separator:a6814246a684b081178e01c960a4edd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -98,13 +96,75 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a46a02100e36b5623fe5ec906851293b6"><td class="memItemLeft" align="right" valign="top">static readonly int []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#a46a02100e36b5623fe5ec906851293b6">Permutation</a></td></tr>
 <tr class="separator:a46a02100e36b5623fe5ec906851293b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a1cfd50708d9b3a806478e9abe6c6d5e0"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#a1cfd50708d9b3a806478e9abe6c6d5e0">PerlinNoise</a> ()</td></tr>
+<tr class="memdesc:a1cfd50708d9b3a806478e9abe6c6d5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor initializes the P arrray with a size of int[512] and adds all the possible permutations  <a href="#a1cfd50708d9b3a806478e9abe6c6d5e0">More...</a><br /></td></tr>
+<tr class="separator:a1cfd50708d9b3a806478e9abe6c6d5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:accf12ab1d7995b1bbeae5301d55f61b3"><td class="memItemLeft" align="right" valign="top"><a id="accf12ab1d7995b1bbeae5301d55f61b3"></a>
-static readonly int []&#160;</td><td class="memItemRight" valign="bottom"><b>p</b></td></tr>
+<tr class="memitem:accf12ab1d7995b1bbeae5301d55f61b3"><td class="memItemLeft" align="right" valign="top">static readonly int []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_perlin_noise.html#accf12ab1d7995b1bbeae5301d55f61b3">p</a></td></tr>
+<tr class="memdesc:accf12ab1d7995b1bbeae5301d55f61b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">int array for allocating all the possible permutations with 510 different permutations  <a href="#accf12ab1d7995b1bbeae5301d55f61b3">More...</a><br /></td></tr>
 <tr class="separator:accf12ab1d7995b1bbeae5301d55f61b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1cfd50708d9b3a806478e9abe6c6d5e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cfd50708d9b3a806478e9abe6c6d5e0">&#9670;&nbsp;</a></span>PerlinNoise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Assets.Scripts.PerlinNoise.PerlinNoise </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The constructor initializes the P arrray with a size of int[512] and adds all the possible permutations </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6814246a684b081178e01c960a4edd96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6814246a684b081178e01c960a4edd96">&#9670;&nbsp;</a></span>fade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float Assets.Scripts.PerlinNoise.fade </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fade function is responsible for easing the curve in the algorithm, this is applied to the U, V and W values creating more gradual changes as the values gets closer to integral coordinates. </p>
+
+</div>
+</div>
 <a id="acf602f5adb436883f20184ec6020e8b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf602f5adb436883f20184ec6020e8b7">&#9670;&nbsp;</a></span>grad()</h2>
 
@@ -151,21 +211,132 @@ static readonly int []&#160;</td><td class="memItemRight" valign="bottom"><b>p</
 </table>
 </div><div class="memdoc">
 
-<p>Picks a random vector from the following 12 vectors: (1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0), (1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1), (0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1) </p>
+<p>Easy and alternative way to write the gradient function Source: <a href="http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html">http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html</a> Picks a random vector from the following 12 vectors: (1, 1, 0),(-1, 1, 0),(1, -1, 0),(-1, -1, 0), (1, 0, 1),(-1, 0, 1),(1, 0, -1),(-1, 0, -1), (0, 1, 1),(0, -1, 1),(0, 1, -1),(0, -1, -1) </p>
+
+</div>
+</div>
+<a id="a0a9585c89676dbed37137fc71b11fec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9585c89676dbed37137fc71b11fec7">&#9670;&nbsp;</a></span>lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float Assets.Scripts.PerlinNoise.lerp </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>firstDouble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>secondDouble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>by</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Linear interpolation </p>
+
+</div>
+</div>
+<a id="a126a47fd87c2c24d18a906ac6c60c1a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a126a47fd87c2c24d18a906ac6c60c1a4">&#9670;&nbsp;</a></span>Perlin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float Assets.Scripts.PerlinNoise.Perlin </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A 3D Perlin Noise method </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">hash</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">z</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>Position Vector X</td></tr>
+    <tr><td class="paramname">y</td><td>Position Vector Y</td></tr>
+    <tr><td class="paramname">z</td><td>Position Vector Z</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the absolute Perlin Noise value</dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="accf12ab1d7995b1bbeae5301d55f61b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf12ab1d7995b1bbeae5301d55f61b3">&#9670;&nbsp;</a></span>p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly int [] Assets.Scripts.PerlinNoise.p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>int array for allocating all the possible permutations with 510 different permutations </p>
+
+</div>
+</div>
 <a id="a46a02100e36b5623fe5ec906851293b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46a02100e36b5623fe5ec906851293b6">&#9670;&nbsp;</a></span>Permutation</h2>
 

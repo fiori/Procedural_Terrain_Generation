@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['depositionspeed',['DepositionSpeed',['../class_assets_1_1_scripts_1_1_erosion.html#a2226b84b5a9f2701c096d660f9fdc5ec',1,'Assets::Scripts::Erosion']]]
+  ['maxsedimentamount',['MaxSedimentAmount',['../class_assets_1_1_scripts_1_1_erosion.html#a2fd2d7a586583b867495c96570f27f6b',1,'Assets::Scripts::Erosion']]],
+  ['minsedimentamount',['MinSedimentAmount',['../class_assets_1_1_scripts_1_1_erosion.html#aedca88fa942fd3f1d2dc7a7cc3c721db',1,'Assets::Scripts::Erosion']]]
 ];

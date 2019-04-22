@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['perlinnoise',['PerlinNoise',['../class_assets_1_1_scripts_1_1_perlin_noise.html',1,'Assets::Scripts']]],
-  ['permutation',['Permutation',['../class_assets_1_1_scripts_1_1_perlin_noise.html#a46a02100e36b5623fe5ec906851293b6',1,'Assets::Scripts::PerlinNoise']]]
+  ['height',['height',['../struct_assets_1_1_scripts_1_1_terrain_type.html#ae407f9e1692c858039720d218efe2ccb',1,'Assets::Scripts::TerrainType']]]
 ];

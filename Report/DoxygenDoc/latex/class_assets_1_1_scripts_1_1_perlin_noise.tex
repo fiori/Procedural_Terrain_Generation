@@ -3,34 +3,55 @@
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_abb0f38b2065f2bf92baa8e33b364fad3}\label{class_assets_1_1_scripts_1_1_perlin_noise_abb0f38b2065f2bf92baa8e33b364fad3}} 
-static float {\bfseries Octave\+Perlin} (float x, float y, float z, float scale, int octaves, float persistance, float lacunarity)
-\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}\label{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}} 
-static float {\bfseries Perlin} (float x, float y, float z)
-\item 
+static float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}{Perlin}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em A 3D Perlin Noise method \end{DoxyCompactList}\item 
 static float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}{grad}} (int hash, float x, float y, float z)
-\begin{DoxyCompactList}\small\item\em Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}\label{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}} 
-static float {\bfseries lerp} (float first\+Double, float second\+Double, float by)
-\item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}\label{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}} 
-static float {\bfseries fade} (float t)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Easy and alternative way to write the gradient function Source\+: \href{http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html}{\texttt{ http\+://riven8192.\+blogspot.\+com/2010/08/calculate-\/perlinnoise-\/twice-\/as-\/fast.\+html}} Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) \end{DoxyCompactList}\item 
+static float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}{lerp}} (float first\+Double, float second\+Double, float by)
+\begin{DoxyCompactList}\small\item\em Linear interpolation \end{DoxyCompactList}\item 
+static float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}{fade}} (float t)
+\begin{DoxyCompactList}\small\item\em Fade function is responsible for easing the curve in the algorithm, this is applied to the U, V and W values creating more gradual changes as the values gets closer to integral coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static readonly int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}{Permutation}}
 \end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_a1cfd50708d9b3a806478e9abe6c6d5e0}{Perlin\+Noise}} ()
+\begin{DoxyCompactList}\small\item\em The constructor initializes the P arrray with a size of int\mbox{[}512\mbox{]} and adds all the possible permutations \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}\label{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}} 
-static readonly int \mbox{[}$\,$\mbox{]} {\bfseries p}
-\end{DoxyCompactItemize}
+static readonly int \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}{p}}
+\begin{DoxyCompactList}\small\item\em int array for allocating all the possible permutations with 510 different permutations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a1cfd50708d9b3a806478e9abe6c6d5e0}\label{class_assets_1_1_scripts_1_1_perlin_noise_a1cfd50708d9b3a806478e9abe6c6d5e0}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!PerlinNoise@{PerlinNoise}}
+\index{PerlinNoise@{PerlinNoise}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{PerlinNoise()}{PerlinNoise()}}
+{\footnotesize\ttfamily static Assets.\+Scripts.\+Perlin\+Noise.\+Perlin\+Noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The constructor initializes the P arrray with a size of int\mbox{[}512\mbox{]} and adds all the possible permutations 
+
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}\label{class_assets_1_1_scripts_1_1_perlin_noise_a6814246a684b081178e01c960a4edd96}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!fade@{fade}}
+\index{fade@{fade}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{fade()}{fade()}}
+{\footnotesize\ttfamily static float Assets.\+Scripts.\+Perlin\+Noise.\+fade (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fade function is responsible for easing the curve in the algorithm, this is applied to the U, V and W values creating more gradual changes as the values gets closer to integral coordinates. 
+
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}\label{class_assets_1_1_scripts_1_1_perlin_noise_acf602f5adb436883f20184ec6020e8b7}} 
 \index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!grad@{grad}}
 \index{grad@{grad}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
@@ -39,25 +60,53 @@ static readonly int \mbox{[}$\,$\mbox{]} {\bfseries p}
 
 
 
-Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) 
+Easy and alternative way to write the gradient function Source\+: \href{http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html}{\texttt{ http\+://riven8192.\+blogspot.\+com/2010/08/calculate-\/perlinnoise-\/twice-\/as-\/fast.\+html}} Picks a random vector from the following 12 vectors\+: (1, 1, 0),(-\/1, 1, 0),(1, -\/1, 0),(-\/1, -\/1, 0), (1, 0, 1),(-\/1, 0, 1),(1, 0, -\/1),(-\/1, 0, -\/1), (0, 1, 1),(0, -\/1, 1),(0, 1, -\/1),(0, -\/1, -\/1) 
+
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}\label{class_assets_1_1_scripts_1_1_perlin_noise_a0a9585c89676dbed37137fc71b11fec7}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!lerp@{lerp}}
+\index{lerp@{lerp}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{lerp()}{lerp()}}
+{\footnotesize\ttfamily static float Assets.\+Scripts.\+Perlin\+Noise.\+lerp (\begin{DoxyParamCaption}\item[{float}]{first\+Double,  }\item[{float}]{second\+Double,  }\item[{float}]{by }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Linear interpolation 
+
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}\label{class_assets_1_1_scripts_1_1_perlin_noise_a126a47fd87c2c24d18a906ac6c60c1a4}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!Perlin@{Perlin}}
+\index{Perlin@{Perlin}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{Perlin()}{Perlin()}}
+{\footnotesize\ttfamily static float Assets.\+Scripts.\+Perlin\+Noise.\+Perlin (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A 3D Perlin Noise method 
 
 
 \begin{DoxyParams}{Parameters}
-{\em hash} & \\
+{\em x} & Position Vector X\\
 \hline
-{\em x} & \\
+{\em y} & Position Vector Y\\
 \hline
-{\em y} & \\
-\hline
-{\em z} & \\
+{\em z} & Position Vector Z\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Returns the absolute Perlin Noise value
 \end{DoxyReturn}
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}\label{class_assets_1_1_scripts_1_1_perlin_noise_accf12ab1d7995b1bbeae5301d55f61b3}} 
+\index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!p@{p}}
+\index{p@{p}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}
+\subsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily readonly int \mbox{[}$\,$\mbox{]} Assets.\+Scripts.\+Perlin\+Noise.\+p\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+int array for allocating all the possible permutations with 510 different permutations 
+
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}\label{class_assets_1_1_scripts_1_1_perlin_noise_a46a02100e36b5623fe5ec906851293b6}} 
 \index{Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}!Permutation@{Permutation}}
 \index{Permutation@{Permutation}!Assets.Scripts.PerlinNoise@{Assets.Scripts.PerlinNoise}}

@@ -75,10 +75,64 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade921d6d84a0bf5dd63f2cb4afb900f5"><td class="memItemLeft" align="right" valign="top"><a id="ade921d6d84a0bf5dd63f2cb4afb900f5"></a>
-static Texture2D&#160;</td><td class="memItemRight" valign="bottom"><b>ColourMap</b> (int width, int height, <a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a>[] terrains, float[] noiseMap)</td></tr>
-<tr class="separator:ade921d6d84a0bf5dd63f2cb4afb900f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372ae39983281269f02f8852b3734526"><td class="memItemLeft" align="right" valign="top">static Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assets_1_1_scripts_1_1_texture_generation.html#a372ae39983281269f02f8852b3734526">ColourMap</a> (int mapSize, <a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a>[] terrains, float[] noiseMap)</td></tr>
+<tr class="memdesc:a372ae39983281269f02f8852b3734526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a colour map for the mesh  <a href="#a372ae39983281269f02f8852b3734526">More...</a><br /></td></tr>
+<tr class="separator:a372ae39983281269f02f8852b3734526"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a372ae39983281269f02f8852b3734526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372ae39983281269f02f8852b3734526">&#9670;&nbsp;</a></span>ColourMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Texture2D Assets.Scripts.TextureGeneration.ColourMap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mapSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_assets_1_1_scripts_1_1_terrain_type.html">TerrainType</a> []&#160;</td>
+          <td class="paramname"><em>terrains</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float []&#160;</td>
+          <td class="paramname"><em>noiseMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a colour map for the mesh </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapSize</td><td>The total size of the Mesh</td></tr>
+    <tr><td class="paramname">terrains</td><td>Struct defined in <a class="el" href="class_assets_1_1_scripts_1_1_mesh_generation.html">MeshGeneration</a></td></tr>
+    <tr><td class="paramname">noiseMap</td><td>The noise map created inside the <a class="el" href="class_assets_1_1_scripts_1_1_map_generation.html#a1b9a4afede5e30c156b0a9d848c9182a" title="Generates a noiseMap through the PerlinNoise class">MapGeneration.GenerateNoiseMap()</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a Texture2D to be applied in a mesh</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>P:/Unity/FMP/Fmp/FinalMajorProject_ProceduralTerrainGeneration/Assets/Scripts/TextureGeneration.cs</li>
 </ul>

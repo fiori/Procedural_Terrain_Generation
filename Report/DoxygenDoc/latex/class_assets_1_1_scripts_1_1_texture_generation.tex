@@ -3,9 +3,33 @@
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_texture_generation_ade921d6d84a0bf5dd63f2cb4afb900f5}\label{class_assets_1_1_scripts_1_1_texture_generation_ade921d6d84a0bf5dd63f2cb4afb900f5}} 
-static Texture2D {\bfseries Colour\+Map} (int width, int height, \mbox{\hyperlink{struct_assets_1_1_scripts_1_1_terrain_type}{Terrain\+Type}}\mbox{[}$\,$\mbox{]} terrains, float\mbox{[}$\,$\mbox{]} noise\+Map)
-\end{DoxyCompactItemize}
+static Texture2D \mbox{\hyperlink{class_assets_1_1_scripts_1_1_texture_generation_a372ae39983281269f02f8852b3734526}{Colour\+Map}} (int map\+Size, \mbox{\hyperlink{struct_assets_1_1_scripts_1_1_terrain_type}{Terrain\+Type}}\mbox{[}$\,$\mbox{]} terrains, float\mbox{[}$\,$\mbox{]} noise\+Map)
+\begin{DoxyCompactList}\small\item\em Creates a colour map for the mesh \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_texture_generation_a372ae39983281269f02f8852b3734526}\label{class_assets_1_1_scripts_1_1_texture_generation_a372ae39983281269f02f8852b3734526}} 
+\index{Assets.Scripts.TextureGeneration@{Assets.Scripts.TextureGeneration}!ColourMap@{ColourMap}}
+\index{ColourMap@{ColourMap}!Assets.Scripts.TextureGeneration@{Assets.Scripts.TextureGeneration}}
+\subsubsection{\texorpdfstring{ColourMap()}{ColourMap()}}
+{\footnotesize\ttfamily static Texture2D Assets.\+Scripts.\+Texture\+Generation.\+Colour\+Map (\begin{DoxyParamCaption}\item[{int}]{map\+Size,  }\item[{\mbox{\hyperlink{struct_assets_1_1_scripts_1_1_terrain_type}{Terrain\+Type}} \mbox{[}$\,$\mbox{]}}]{terrains,  }\item[{float \mbox{[}$\,$\mbox{]}}]{noise\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a colour map for the mesh 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Size} & The total size of the Mesh\\
+\hline
+{\em terrains} & Struct defined in \mbox{\hyperlink{class_assets_1_1_scripts_1_1_mesh_generation}{Mesh\+Generation}}\\
+\hline
+{\em noise\+Map} & The noise map created inside the \mbox{\hyperlink{class_assets_1_1_scripts_1_1_map_generation_a1b9a4afede5e30c156b0a9d848c9182a}{Map\+Generation.\+Generate\+Noise\+Map()}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a Texture2D to be applied in a mesh
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

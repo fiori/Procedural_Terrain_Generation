@@ -10,7 +10,9 @@ namespace Assets.Scripts
     public struct TerrainType
     {
         public string name;
+        /// Noise Map
         public float height;
+        /// Terrain Colour
         public Color colour;
     }
 
@@ -143,7 +145,7 @@ namespace Assets.Scripts
             vertIndex = 0;
             noiseMap = MapGeneration.GenerateNoiseMap(mapSize, noiseScale, lacunarity, persistance, octaves);
             GetComponent<MeshRenderer>().sharedMaterial.mainTexture = null;
-            //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, mapSize, terrains, noiseMap);
+            //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, terrains, noiseMap);
 
             GetComponent<MeshRenderer>().sharedMaterial.color = Color.gray;
             //Fix: in the vertices I had to increment mapSize + 1 for each
