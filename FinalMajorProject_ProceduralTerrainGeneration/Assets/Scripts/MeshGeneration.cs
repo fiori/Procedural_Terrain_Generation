@@ -86,6 +86,8 @@ namespace Assets.Scripts
         ///How many water particles to be generated to create erosion. 
         public int Iterations = 150000;
 
+        private float Rotation = 0;
+
         /// <summary>
         /// Sets the Mesh Data and add the singleton instance to this script.
         /// </summary>
@@ -184,6 +186,8 @@ namespace Assets.Scripts
         void Update()
         {
             UpdateMesh();
+            Rotation += 0.1f;
+            this.transform.parent.localRotation = Quaternion.Euler(new Vector3(this.transform.rotation.x,Rotation,this.transform.rotation.z));
         }
 
         /// <summary>
