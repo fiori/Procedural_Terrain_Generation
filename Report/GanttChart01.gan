@@ -97,7 +97,7 @@
                 </task>
                 <task id="217" name="Generate the NoiseMap to add the heigth for each vertice" color="#8cb6ce" meeting="false" start="2019-03-07" duration="2" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="185" name="Sprint 5 - Graphic interface to change the terrain generation on the go and Level of detail implementation" color="#8cb6ce" meeting="false" start="2019-03-09" duration="13" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
+            <task id="185" name="Sprint 5 - Graphic interface to change the terrain generation on the go and Level of detail implementation" color="#8cb6ce" meeting="false" start="2019-03-09" duration="13" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="false">
                 <depend id="195" type="2" difference="0" hardness="Strong"/>
                 <task id="218" name="Research" color="#8cb6ce" meeting="false" start="2019-03-09" duration="4" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true">
                     <depend id="219" type="2" difference="0" hardness="Strong"/>
