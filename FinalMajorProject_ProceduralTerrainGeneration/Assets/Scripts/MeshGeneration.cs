@@ -126,26 +126,6 @@ namespace Assets.Scripts
         /// <returns>Returns the IEnumerator that is the amount of seconds to wait before the next Coroutine</returns>
         public IEnumerator CreateShapeCoroutine()
         {
-            ////triangles = new int[(mapSize - 1) * (mapSize - 1) * 6];
-
-            //int verticesIndex = 0;
-
-            //for (int z = 0; z < mapSize; z++)
-            //{
-            //    for (int x = 0; x < mapSize ; x++)
-            //    {
-            //        perlinNoise = PerlinNoise.Perlin(x * 0.1f, z * 0.1f, 0);
-            //        vertices[verticesIndex] = new Vector3(x,/*perlinNoise * 20*/0,z);
-            //        if (triangleIndex < triangles.Length)
-            //        {
-            //            //CreateTriangle(verticesIndex + 1, verticesIndex, verticesIndex + mapSize, ref triangleIndex);
-            //            //CreateTriangle(verticesIndex + 1, verticesIndex + mapSize, verticesIndex + mapSize + 1, ref triangleIndex);
-            //        }
-            //        verticesIndex++;
-            //        yield return new WaitForSeconds(0.4f);
-            //    }
-            //}
-
             int verticesIndex = 0;
 
             for (int z = 0; z <= MapSize; z++)
@@ -157,15 +137,6 @@ namespace Assets.Scripts
                     verticesIndex++;
                 }
             }
-
-            //if (triangleIndex < triangles.Length)
-            //{
-            //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + mapSize);
-            //    //CreateTriangle(vertIndex + 1, vertIndex + mapSize, vertIndex + mapSize + 1);
-            //    CreateQuad(mapSize);
-
-            //}
-
             for (int z = 0; z < MapSize; z++)
             {
                 for (int x = 0; x < MapSize; x++)
@@ -206,7 +177,7 @@ namespace Assets.Scripts
             GetComponent<MeshRenderer>().sharedMaterial.mainTexture = null;
             //GetComponent<MeshRenderer>().sharedMaterial.mainTexture = TextureGeneration.ColourMap(mapSize, terrains, noiseMap);
 
-            GetComponent<MeshRenderer>().sharedMaterial.color = Color.gray;
+            //GetComponent<MeshRenderer>().sharedMaterial.color = Color.gray;
             //Fix: in the vertices I had to increment mapSize + 1 for each
             //10 Square and 11 vertices!
             _vertices = new Vector3[(MapSize + 1) * (MapSize + 1)];
@@ -260,15 +231,6 @@ namespace Assets.Scripts
                     verticesIndex++;
                 }
             }
-
-            //if (triangleIndex < triangles.Length)
-            //{
-            //    //CreateTriangle(vertIndex + 1, vertIndex, vertIndex + mapSize);
-            //    //CreateTriangle(vertIndex + 1, vertIndex + mapSize, vertIndex + mapSize + 1);
-            //    CreateQuad(mapSize);
-
-            //}
-
             for (int z = 0; z < MapSize; z+= lod)
             {
                 for (int x = 0; x < MapSize; x+= lod)
@@ -319,14 +281,6 @@ namespace Assets.Scripts
         /// <param name="xMapSize">Vertices per line</param>
         void CreateQuad(int xMapSize)
         {
-            //triangles[triangleIndex + 0] = vertIndex;
-            //triangles[triangleIndex + 1] = vertIndex + mapSize;
-            //triangles[triangleIndex + 2] = vertIndex + 1;
-
-            //triangles[triangleIndex + 3] = vertIndex + 1;
-            //triangles[triangleIndex + 4] = vertIndex + mapSize;
-            //triangles[triangleIndex + 5] = vertIndex + mapSize + 1;
-
             _triangles[_vertexIndex + 0] = _rowIndex;
             _triangles[_vertexIndex + 1] = _rowIndex + xMapSize + 1;
             _triangles[_vertexIndex + 2] = _rowIndex + 1;
@@ -348,7 +302,6 @@ namespace Assets.Scripts
         /// </summary>
         public void Erode()
         {
-            //_noiseMap = MapGeneration.GenerateNoiseMap(MapSize, NoiseScale, Lacunarity, Persistance, Octaves);
             erosion = FindObjectOfType<Erosion>();
             erosion.Erode(_noiseMap, MapSize, Iterations);
             CreateShape();

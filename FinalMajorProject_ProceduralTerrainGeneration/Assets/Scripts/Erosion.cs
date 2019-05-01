@@ -164,7 +164,6 @@ namespace Assets.Scripts
             float x = posX - coordX;
             float y = posY - coordY;
 
-            // Calculate heights of the four nodes of the droplet's cell
             int nodeIndexNW = coordY * mapSize + coordX;
             ///////////////////////////////////////////////////
             //NODE(x)(y)
