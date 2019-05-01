@@ -18,20 +18,20 @@ void \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_ae9fe52b6ccc11f7cc767
 float {\bfseries Radius} = 0.\+1f
 \item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a7cfb294ed0d6bfcf22547a839f119550}\label{class_assets_1_1_scripts_1_1_erosion_a7cfb294ed0d6bfcf22547a839f119550}} 
-float {\bfseries Erosion\+Speed} = .\+3f
-\item 
+float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_a7cfb294ed0d6bfcf22547a839f119550}{Erosion\+Speed}} = .\+3f
+\begin{DoxyCompactList}\small\item\em Defines the diameter of each particle. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a2226b84b5a9f2701c096d660f9fdc5ec}\label{class_assets_1_1_scripts_1_1_erosion_a2226b84b5a9f2701c096d660f9fdc5ec}} 
-float {\bfseries Deposition\+Speed} = .\+3f
-\item 
+float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_a2226b84b5a9f2701c096d660f9fdc5ec}{Deposition\+Speed}} = .\+3f
+\begin{DoxyCompactList}\small\item\em used to increase the erosion speed \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_adeab8d43b57014d421cc2828c3167758}\label{class_assets_1_1_scripts_1_1_erosion_adeab8d43b57014d421cc2828c3167758}} 
-int {\bfseries Water\+Drop\+Life\+Time} = 30
-\item 
+int \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_adeab8d43b57014d421cc2828c3167758}{Water\+Drop\+Life\+Time}} = 30
+\begin{DoxyCompactList}\small\item\em Used to increase the deposition speed. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a0e7a9fec86d88119d83f382d161ed81c}\label{class_assets_1_1_scripts_1_1_erosion_a0e7a9fec86d88119d83f382d161ed81c}} 
-float {\bfseries Starting\+Water\+Amount} = 1
-\item 
+float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_a0e7a9fec86d88119d83f382d161ed81c}{Starting\+Water\+Amount}} = 1
+\begin{DoxyCompactList}\small\item\em Life\+Spawn of each particle. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a4fff926bbec51b5e825ed01207792f54}\label{class_assets_1_1_scripts_1_1_erosion_a4fff926bbec51b5e825ed01207792f54}} 
-float {\bfseries Starting\+Speed\+Of\+The\+Water\+Flow} = 1
-\end{DoxyCompactItemize}
+float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_a4fff926bbec51b5e825ed01207792f54}{Starting\+Speed\+Of\+The\+Water\+Flow}} = 1
+\begin{DoxyCompactList}\small\item\em The initializer for the amount of water. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,9 +40,8 @@ float {\bfseries Starting\+Speed\+Of\+The\+Water\+Flow} = 1
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a2fd2d7a586583b867495c96570f27f6b}\label{class_assets_1_1_scripts_1_1_erosion_a2fd2d7a586583b867495c96570f27f6b}} 
 const float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_a2fd2d7a586583b867495c96570f27f6b}{Max\+Sediment\+Amount}} = 4
-\begin{DoxyCompactList}\small\item\em Multiplier for how much sediment a droplet can carry. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The initial speed of the water flow. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_aedca88fa942fd3f1d2dc7a7cc3c721db}\label{class_assets_1_1_scripts_1_1_erosion_aedca88fa942fd3f1d2dc7a7cc3c721db}} 
 const float \mbox{\hyperlink{class_assets_1_1_scripts_1_1_erosion_aedca88fa942fd3f1d2dc7a7cc3c721db}{Min\+Sediment\+Amount}} = .\+01f
 \begin{DoxyCompactList}\small\item\em Used to prevent carry capacity getting too close to zero on flatter terrain. \end{DoxyCompactList}\item 
@@ -99,6 +98,19 @@ Method using for creating the erosion on the mesh
 \hline
 \end{DoxyParams}
 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_assets_1_1_scripts_1_1_erosion_a2fd2d7a586583b867495c96570f27f6b}\label{class_assets_1_1_scripts_1_1_erosion_a2fd2d7a586583b867495c96570f27f6b}} 
+\index{Assets.Scripts.Erosion@{Assets.Scripts.Erosion}!MaxSedimentAmount@{MaxSedimentAmount}}
+\index{MaxSedimentAmount@{MaxSedimentAmount}!Assets.Scripts.Erosion@{Assets.Scripts.Erosion}}
+\subsubsection{\texorpdfstring{MaxSedimentAmount}{MaxSedimentAmount}}
+{\footnotesize\ttfamily const float Assets.\+Scripts.\+Erosion.\+Max\+Sediment\+Amount = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The initial speed of the water flow. 
+
+Multiplier for how much sediment a droplet can carry 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

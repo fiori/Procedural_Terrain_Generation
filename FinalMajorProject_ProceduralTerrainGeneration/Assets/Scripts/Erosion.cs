@@ -15,19 +15,19 @@ namespace Assets.Scripts
     public class Erosion : MonoBehaviour
     {
         [Range(0,1)]
-        public float Radius = 0.1f;
+        public float Radius = 0.1f; ///Defines the diameter of each particle
 
         [Range(0, 1)]
-        public float ErosionSpeed = .3f;
+        public float ErosionSpeed = .3f; ///used to increase the erosion speed
 
         [Range(0, 1)]
-        public float DepositionSpeed = .3f;
+        public float DepositionSpeed = .3f;///Used to increase the deposition speed 
 
-        public int WaterDropLifeTime = 30;
+        public int WaterDropLifeTime = 30; ///LifeSpawn of each particle
 
-        public float StartingWaterAmount = 1;
+        public float StartingWaterAmount = 1; ///The initializer for the amount of water
 
-        public float StartingSpeedOfTheWaterFlow = 1;
+        public float StartingSpeedOfTheWaterFlow = 1; ///The initial speed of the water flow
 
         //Private Vars
         /// Multiplier for how much sediment a droplet can carry
