@@ -111,10 +111,10 @@ namespace Assets.Scripts
             Sliders[3].value = TerrainHeight;
             Sliders[4].value = Iterations;
             iterationText.text = Iterations.ToString();
-            Sliders[0].onValueChanged.AddListener(delegate { Lacunarity = Sliders[0].value;});
-            Sliders[1].onValueChanged.AddListener(delegate { Persistance = Sliders[1].value;});
-            Sliders[2].onValueChanged.AddListener(delegate { Octaves = (int)Sliders[2].value;});
-            Sliders[3].onValueChanged.AddListener(delegate { TerrainHeight = Sliders[3].value;});
+            Sliders[0].onValueChanged.AddListener(delegate { Lacunarity = Sliders[0].value; SetMeshData(); CreateShape(); UpdateMesh();});
+            Sliders[1].onValueChanged.AddListener(delegate { Persistance = Sliders[1].value; SetMeshData(); CreateShape(); UpdateMesh(); });
+            Sliders[2].onValueChanged.AddListener(delegate { Octaves = (int)Sliders[2].value; SetMeshData(); CreateShape(); UpdateMesh(); });
+            Sliders[3].onValueChanged.AddListener(delegate { TerrainHeight = Sliders[3].value; SetMeshData(); CreateShape(); UpdateMesh(); });
             Sliders[4].onValueChanged.AddListener(delegate { Iterations = (int)Sliders[4].value;
                 iterationText.text = Iterations.ToString();});
         }
