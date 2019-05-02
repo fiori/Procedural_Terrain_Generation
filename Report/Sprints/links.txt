@@ -1,5 +1,0 @@
-https://www.firespark.de/resources/downloads/implementation%20of%20a%20methode%20for%20hydraulic%20erosion.pdf
-http://hpcg.purdue.edu/bbenes/papers/Stava08SCA.pdf
-https://www.redblobgames.com/maps/terrain-from-noise/#trees
-http://web.mit.edu/cesium/Public/terrain.pdf
-file:///P:/Unity/FMP/Fmp/Journals/Chiba_et_al-1998-The_Journal_of_Visualization_and_Computer_Animation.pdf
